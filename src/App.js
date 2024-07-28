@@ -1,24 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+  Link,
+  useNavigate,
+} from "react-router-dom";
+import "./App.css";
+import "./styles.css";
+import SignInButton from "./components/SignInButton";
+import fitness from "./images/fitness.jpg";
+import WorkOutButton from "./components/WorkOutButton";
+import WorkoutProgrammeButton from "./components/ProgrammesButton";
+import HealthyButton from "./components/HealthyLivingButton";
+import SignUpButton from "./components/SignUpButton";
+import SignIn from "./components/SignInPage";
+import Signup from "./components/SignUpPage";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <div>
+                <img className="image-dimensions" src={fitness} alt="fitness" />
+                <h1 className="center-title"> Functional Fitness</h1>
+                <h2 className="text-colour">
+                  Welcome to The Functional Fitness website. Let's get started
+                  to get you in shape
+                </h2>
+                <SignInButton></SignInButton>
+                <SignUpButton></SignUpButton>
+
+                <div className="button-container">
+                  <WorkoutProgrammeButton></WorkoutProgrammeButton>
+                  <WorkOutButton></WorkOutButton>
+                  <HealthyButton></HealthyButton>
+                </div>
+              </div>
+            }
+          />
+
+          <Route path="/sign-up" element={<Signup/>} />
+          <Route path ="/sign-in" element={<SignIn/>}/>
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

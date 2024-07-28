@@ -1,0 +1,67 @@
+h1 {
+  margin: 50px;
+}
+
+.sign-in-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+  position:absolute;
+  top:0;
+  right:0;
+}
+
+.sign-up-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 10px;
+  cursor: pointer;
+  position: absolute;
+  top: 0px; 
+  right: 120px; 
+}
+body {
+  background-color: black;
+}
+
+.text-colour {
+  color: white;
+  text-align: center;
+}
+
+.center-title {
+  color: white;
+  text-align: center;
+}
+
+.image-dimensions{
+    width:300px;
+
+}
+
+.button-container {
+  display:flex;
+  gap:300px;
+  
+}
+
+.button-container button{
+  flex:none;
+  gap:10x;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+
