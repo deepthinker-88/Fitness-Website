@@ -5,7 +5,7 @@ export default function Signup () {
     const [password,setPassword] = useState("");
 
     const handleSignUp = (e) => {
-        e.preventDefafult();
+        e.preventDefault();
         console.log("Signup email:", email,"password:",password);
     };
 
