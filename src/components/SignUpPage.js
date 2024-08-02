@@ -37,7 +37,7 @@ export default function Signup () {
                     required
                 />
 
-                <button type = "submit">Signup</button>
+                <button className="sign-up-button-sign-up-page"type = "submit">Signup</button>
 
             </form>
         </div>

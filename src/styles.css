@@ -65,3 +65,15 @@ body {
 }
 
 
+.sign-up-button-sign-up-page {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 10px;
+  cursor: pointer;
+  position: absolute;
+  top: -13px; 
+  left: 440px; 
+}
