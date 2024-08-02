@@ -7,6 +7,7 @@ export default function Signup () {
     const handleSignUp = (e) => {
         e.preventDefault();
         console.log("Signup email:", email,"password:",password);
+        console.log("You have signed up")
     };
 
     return (
@@ -37,7 +38,7 @@ export default function Signup () {
                     required
                 />
 
-                <button className="sign-up-button-sign-up-page"type = "submit">Signup</button>
+                <button className="sign-up-button-sign-up-page"type = "submit" onClick = {handleSignUp}>Signup</button>
 
             </form>
         </div>
