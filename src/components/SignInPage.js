@@ -7,8 +7,9 @@ export default function SignIn() {
   const handleLogin = (e) => {
     e.preventDefault();
     console.log("Email:",email, "Password:",password)
+    console.log("You have signed in")
   }
-  return <div>
+  return (<div>
     <form onSubmit={handleLogin}>
         <input
             type="email"
@@ -27,5 +28,6 @@ export default function SignIn() {
         />
         <button type = "submit">Sign In</button>
     </form>
-  </div>;
+  </div>
+  );
 }
