@@ -16,6 +16,7 @@ import HealthyButton from "./components/HealthyLivingButton";
 import SignUpButton from "./components/SignUpButton";
 import SignIn from "./components/SignInPage";
 import Signup from "./components/SignUpPage";
+import ConfirmedSignUp from "./components/SignUpConfirmed";
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
 
           <Route path="/sign-up" element={<Signup/>} />
           <Route path ="/sign-in" element={<SignIn/>}/>
+          <Route path = "/sign-up/confirmed" element={<ConfirmedSignUp/>}/>
         </Routes>
       </div>
     </Router>
