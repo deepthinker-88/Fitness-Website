@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 
 export default function Signup () {
+    const [firstname,setFirstName] = useState("");
+    const [lastname,setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password,setPassword] = useState("");
 
@@ -12,7 +14,21 @@ export default function Signup () {
 
     return (
         <div>
-            <form onSubmit = {handleSignUp}>
+            <form onSubmit = {handleSignUp}> 
+                <input
+                    type ="text"
+                    placeholder = "Enter first name"
+                    value = {firstname}
+                    onChange={(e) => setFirstName(e.target.value)}
+                />
+
+                <input
+                    type = "text"
+                    placeholder = "Enter last name"
+                    value = {lastname}
+                    onChange = {(e) => setLastName(e.target.value)}
+                />
+           
                 <input
                     type ="email"
                     placeholder="Enter email"
