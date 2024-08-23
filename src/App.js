@@ -2,9 +2,6 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Navigate,
-  Link,
-  useNavigate,
 } from "react-router-dom";
 import "./App.css";
 import "./styles.css";
