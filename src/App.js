@@ -5,15 +5,15 @@ import {
 } from "react-router-dom";
 import "./App.css";
 import "./styles.css";
-import SignInButton from "./components/SignInButton";
+import SignInButton from "./components/SignInButton/SignInButton";
 import fitness from "./images/fitness.jpg";
-import WorkOutButton from "./components/WorkOutButton";
-import WorkoutProgrammeButton from "./components/ProgrammesButton";
-import HealthyButton from "./components/HealthyLivingButton";
-import SignUpButton from "./components/SignUpButton";
-import SignIn from "./components/SignInPage";
-import Signup from "./components/SignUpPage";
-import ConfirmedSignUp from "./components/SignUpConfirmed";
+import WorkOutButton from "./components/WorkOutButton/WorkOutButton";
+import WorkoutProgrammeButton from "./components/ProgrammesButton/ProgrammesButton";
+import HealthyButton from "./components/HealthyLivingButton/HealthyLivingButton";
+import SignUpButton from "./components/SignUpButton/SignUpButton";
+import SignIn from "./components/SignInPage/SignInPage";
+import Signup from "./components/SignUpPage/SignUpPage";
+import ConfirmedSignUp from "./components/SignUpConfirmed/SignUpConfirmed";
 
 
 function App() {
