@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('Should show text Functional Fitness on homepage', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const textElements = screen.getAllByText(/Functional Fitness/i);
+  const value = 'Functional Fitness';
+  expect(textElements.some(el => el.textContent.includes(value))).toBe(true);
 });
