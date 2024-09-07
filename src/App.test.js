@@ -23,5 +23,3 @@ test('Sign In appears and is visible on the page', () => {
   expect(signInButton).toBeInTheDocument();
 });
 
-
-
