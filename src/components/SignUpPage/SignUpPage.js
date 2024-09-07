@@ -50,7 +50,7 @@ export default function Signup() {
 
         <input
           type="password"
-          placeholder="Enter confirm password"
+          placeholder="Confirm password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
