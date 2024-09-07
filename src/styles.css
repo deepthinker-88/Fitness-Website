@@ -90,3 +90,9 @@ body {
   top: -13px; 
   right: 289px; 
 }
+
+.back-to-home-button {
+
+  background-color: #007bff;
+  color: white;
+}
