@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import BackToHomePageButton from "../BackToHomePageButton/BackToHomePageButton";
 
 export default function SignIn() {
   const [email, setEmail] = useState("");
@@ -10,7 +11,6 @@ export default function SignIn() {
     console.log("You have signed in");
   };
   return (
-    
     <div>
       <form onSubmit={handleLogin}>
         <input
@@ -30,6 +30,7 @@ export default function SignIn() {
         />
         <button className="sign-in-button-sign-in-page">Sign In</button>
       </form>
+      <BackToHomePageButton></BackToHomePageButton>
     </div>
   );
 }
