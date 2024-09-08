@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import BackToHomePageButton from "../BackToHomePageButton/BackToHomePageButton";
 export default function Signup() {
   const navigate = useNavigate();
   const [firstname, setFirstName] = useState("");
@@ -67,6 +68,7 @@ export default function Signup() {
           Signup
         </button>
       </form>
+      <BackToHomePageButton></BackToHomePageButton>
     </div>
   );
 }
