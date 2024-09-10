@@ -8,7 +8,7 @@ import "./styles.css";
 import SignInButton from "./components/SignInButton/SignInButton";
 import fitness from "./images/fitness.jpg";
 import WorkOutButton from "./components/WorkOutButton/WorkOutButton";
-import WorkoutProgrammeButton from "./components/ProgrammesButton/ProgrammesButton";
+import WorkoutProgrammesButton from "./components/WorkoutProgrammesButton/WorkoutProgrammesButton";
 import HealthyButton from "./components/HealthyLivingButton/HealthyLivingButton";
 import SignUpButton from "./components/SignUpButton/SignUpButton";
 import SignIn from "./components/SignInPage/SignInPage";
@@ -31,13 +31,13 @@ function App() {
                   Welcome to The Functional Fitness website. Let's get started
                   to get you in shape
                 </h2>
-                <SignInButton></SignInButton>
-                <SignUpButton></SignUpButton>
+                <SignInButton />
+                <SignUpButton />
 
                 <div className="button-container">
-                  <WorkoutProgrammeButton></WorkoutProgrammeButton>
-                  <WorkOutButton></WorkOutButton>
-                  <HealthyButton></HealthyButton>
+                  <WorkoutProgrammesButton />
+                  <WorkOutButton />
+                  <HealthyButton />
                 </div>
               </div>
             }
