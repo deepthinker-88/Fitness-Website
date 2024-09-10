@@ -30,7 +30,7 @@ export default function SignIn() {
         />
         <button className="sign-in-button-sign-in-page">Sign In</button>
       </form>
-      <BackToHomePageButton></BackToHomePageButton>
+      <BackToHomePageButton />
     </div>
   );
 }
