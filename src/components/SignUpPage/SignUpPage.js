@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BackToHomePageButton from "../BackToHomePageButton/BackToHomePageButton";
+
 export default function Signup() {
   const navigate = useNavigate();
   const [firstname, setFirstName] = useState("");
@@ -8,11 +9,13 @@ export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  
   const handleSignUp = () => {
     console.log("Signup email:", email, "password:", password);
     console.log("You have signed up");
   };
 
+  
   const goToLoginPage = () => {
     navigate("/sign-in");
   };
@@ -68,7 +71,7 @@ export default function Signup() {
           Signup
         </button>
       </form>
-      <BackToHomePageButton></BackToHomePageButton>
+      <BackToHomePageButton />
     </div>
   );
 }
