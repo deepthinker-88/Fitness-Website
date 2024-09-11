@@ -40,3 +40,16 @@ test("Displays placeholder and updates Enter Email input field with user-provide
   user.type(element, "test@mail.com");
   expect(element.value).toBe("test@mail.com");
 });
+
+test("Displays placeholder and updates Enter Password input field with user-provided text", () => {
+  render(
+    <BrowserRouter>
+      <Signup />
+    </BrowserRouter>
+  );
+
+  const element = screen.getByPlaceholderText(/enter password/i);
+  user.click(element);
+  user.type(element, "password123");
+  expect(element.value).toBe("password123");
+});
