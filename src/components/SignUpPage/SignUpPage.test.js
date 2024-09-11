@@ -29,3 +29,14 @@ test("Displays placeholder and updates Last Name input field with user-provided 
   expect(element.value).toBe("last name");
 });
 
+test("Displays placeholder and updates Enter Email input field with user-provided text", () => {
+  render(
+    <BrowserRouter>
+      <Signup />
+    </BrowserRouter>
+  );
+  const element = screen.getByPlaceholderText(/enter email/i);
+  user.click(element);
+  user.type(element, "test@mail.com");
+  expect(element.value).toBe("test@mail.com");
+});
