@@ -53,3 +53,16 @@ test("Displays placeholder and updates Enter Password input field with user-prov
   user.type(element, "password123");
   expect(element.value).toBe("password123");
 });
+
+test("Displays placeholder and updates Confirm Password input field with user-provided text", () => {
+  render(
+    <BrowserRouter>
+      <Signup />
+    </BrowserRouter>
+  );
+
+  const element = screen.getByPlaceholderText(/confirm password/i);
+  user.click(element);
+  user.type(element, "password123");
+  expect(element.value).toBe("password123");
+});
