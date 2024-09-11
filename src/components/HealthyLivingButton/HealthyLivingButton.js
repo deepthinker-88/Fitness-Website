@@ -1,17 +1,26 @@
-import React from 'react';
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function HealthyButton() {
-    const handleClicked = () => {
-        console.log('Healthy Button has been clicked!') 
-    };
-    return (
-        <div className="button-container"> 
-        <button className="button-container" onClick={handleClicked}>
-            Healthy Living
-        </button>
-        </div>
-    );
-    }
-    
+  const navigate = useNavigate();
+  const handleClicked = () => {
+    console.log("Healthy Button has been clicked!");
+  };
 
-
+  const goToHealthyLivingPage = () => {
+    navigate("/healthy_living");
+  };
+  return (
+    <div>
+      <button
+        className="button-container"
+        onClick={() => {
+          goToHealthyLivingPage();
+          handleClicked();
+        }}
+      >
+        Healthy Living
+      </button>
+    </div>
+  );
+}
