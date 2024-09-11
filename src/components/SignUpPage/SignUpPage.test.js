@@ -2,6 +2,12 @@ import { render, screen } from "@testing-library/react";
 import user from "@testing-library/user-event";
 import { BrowserRouter } from "react-router-dom";
 import Signup from "./SignUpPage";
+import BackToHomePageButton from "../BackToHomePageButton/BackToHomePageButton";
+const mockedUsedNavigate = jest.fn();
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: () => mockedUsedNavigate,
+}));
 
 test("Displays placeholder and updates First Name input field with user-provided text", () => {
   render(
@@ -65,4 +71,19 @@ test("Displays placeholder and updates Confirm Password input field with user-pr
   user.click(element);
   user.type(element, "password123");
   expect(element.value).toBe("password123");
+});
+
+test("Once user clicks on Back to Home Page Button on Sign Up Page it navigates user back to the homepage", () => {
+  render(
+    <BrowserRouter>
+      <BackToHomePageButton />
+    </BrowserRouter>
+  );
+
+  const button = screen.getByRole("button", {
+    name: /go back to homepage/i,
+  });
+  user.click(button);
+  expect(mockedUsedNavigate).toHaveBeenCalledTimes(1);
+  expect(mockedUsedNavigate).toHaveBeenCalledWith("/");
 });
