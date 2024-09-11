@@ -15,3 +15,17 @@ test("Displays placeholder and updates First Name input field with user-provided
   user.type(element, "example");
   expect(element.value).toBe("example");
 });
+
+test("Displays placeholder and updates Last Name input field with user-provided text", () => {
+  render(
+    <BrowserRouter>
+      <Signup />
+    </BrowserRouter>
+  );
+
+  const element = screen.getByPlaceholderText(/enter last name/i);
+  user.click(element);
+  user.type(element, "last name");
+  expect(element.value).toBe("last name");
+});
+
