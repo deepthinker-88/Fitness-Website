@@ -18,5 +18,5 @@ test('User gets directed to WorkoutProgrammes Page when clicking on Workout Prog
     const button = screen.getByRole('button',{name:/workout programmes/i});
     user.click(button)
     expect(mockedUsedNavigate).toHaveBeenCalledTimes(1);
-    expect(mockedUsedNavigate).toHaveBeenCalledWith('/workout-programmes')
+    expect(mockedUsedNavigate).toHaveBeenCalledWith('/workout-programmes');
 })
