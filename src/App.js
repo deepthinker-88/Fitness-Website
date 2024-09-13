@@ -1,8 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import "./styles.css";
 import SignInButton from "./components/SignInButton/SignInButton";
@@ -13,8 +9,6 @@ import HealthyButton from "./components/HealthyLivingButton/HealthyLivingButton"
 import SignUpButton from "./components/SignUpButton/SignUpButton";
 import SignIn from "./components/SignInPage/SignInPage";
 import Signup from "./components/SignUpPage/SignUpPage";
-import ConfirmedSignUp from "./components/SignUpConfirmed/SignUpConfirmed";
-
 
 function App() {
   return (
@@ -43,9 +37,8 @@ function App() {
             }
           />
 
-          <Route path="/sign-up" element={<Signup/>} />
-          <Route path ="/sign-in" element={<SignIn/>}/>
-          <Route path = "/sign-up/confirmed" element={<ConfirmedSignUp/>}/>
+          <Route path="/sign-up" element={<Signup />} />
+          <Route path="/sign-in" element={<SignIn />} />
         </Routes>
       </div>
     </Router>
