@@ -1,15 +1,27 @@
-import React from 'react';
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function WorkoutProgrammeButton () {
-    const handleClick = () => {
-        console.log('Programme button has been clicked')
-    }
+export default function WorkoutProgrammeButton() {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    console.log("Programme button has been clicked");
+  };
 
-    return (
-        <div className='button-container'>
-            <button onClick={handleClick}>Workout Programmes</button>
-            {/* <button onClick={handleClick}>Workouts</button> */}
-        </div>
-    )
+  const goToWorkoutProgrammesButton = () => {
+    navigate("/workout-programmes");
+  };
 
+  return (
+    <div>
+      <button
+        className="button-container"
+        onClick={() => {
+          handleClick();
+          goToWorkoutProgrammesButton();
+        }}
+      >
+        Workout Programmes
+      </button>
+    </div>
+  );
 }
