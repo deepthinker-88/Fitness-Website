@@ -19,6 +19,7 @@ export default function SignIn() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+          autoComplete="username"
         />
 
         <input
@@ -27,6 +28,7 @@ export default function SignIn() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          autoComplete="current-password"
         />
         <button className="sign-in-button-sign-in-page">Sign In</button>
       </form>
