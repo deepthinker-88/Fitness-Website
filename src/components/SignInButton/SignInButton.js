@@ -6,8 +6,7 @@ export default function SignInButton() {
 
   const handleClick = () => {
     navigate("/sign-in");
-    console.log("Sign In Button has been clicked");
-  };
+  }
 
   return (
     <button className="sign-in-button" onClick={handleClick}>
