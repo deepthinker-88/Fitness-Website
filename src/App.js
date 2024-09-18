@@ -39,6 +39,7 @@ function App() {
 
           <Route path="/sign-up" element={<Signup />} />
           <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/workout-programmes" element={<WorkoutProgrammesButton />}/>
         </Routes>
       </div>
     </Router>
