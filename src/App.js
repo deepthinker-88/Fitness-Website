@@ -4,11 +4,14 @@ import "./styles.css";
 import SignInButton from "./components/SignInButton/SignInButton";
 import fitness from "./images/fitness.jpg";
 import WorkOutButton from "./components/WorkOutButton/WorkOutButton";
-import WorkoutProgrammesButton from "./components/WorkoutProgrammesButton/WorkoutProgrammesButton";
+import WorkOutProgrammesButton from "./components/WorkOutProgrammesButton/WorkOutProgrammesButton";
 import HealthyButton from "./components/HealthyLivingButton/HealthyLivingButton";
 import SignUpButton from "./components/SignUpButton/SignUpButton";
 import SignIn from "./components/SignInPage/SignInPage";
 import Signup from "./components/SignUpPage/SignUpPage";
+import WorkOutProgrammesPage from "./components/WorkOutProgrammesPage/WorkOutProgrammesPage";
+import HealthyLivingPage from "./components/HealthyLivingPage/HealthyLivingPage"
+import WorkOutsPage from "./components/WorkOutsPage/WorkOutsPage";
 
 function App() {
   return (
@@ -29,7 +32,7 @@ function App() {
                 <SignUpButton />
 
                 <div className="button-container">
-                  <WorkoutProgrammesButton />
+                  <WorkOutProgrammesButton />
                   <WorkOutButton />
                   <HealthyButton />
                 </div>
@@ -39,7 +42,9 @@ function App() {
 
           <Route path="/sign-up" element={<Signup />} />
           <Route path="/sign-in" element={<SignIn />} />
-          <Route path="/workout-programmes" element={<WorkoutProgrammesButton />}/>
+          <Route path="/workout-programmes" element={<WorkOutProgrammesPage />}/>
+          <Route path="/healthy-living" element={<HealthyLivingPage />}/>
+          <Route path ="/workouts" element={<WorkOutsPage />}/>
         </Routes>
       </div>
     </Router>
