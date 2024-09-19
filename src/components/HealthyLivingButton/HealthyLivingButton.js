@@ -7,7 +7,7 @@ export default function HealthyButton() {
   };
 
   const goToHealthyLivingPage = () => {
-    navigate("/healthy_living");
+    navigate("/healthy-living");
   };
   return (
     <div>
