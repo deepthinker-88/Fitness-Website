@@ -48,7 +48,8 @@ body {
 
 .button-container {
   display:flex;
-  gap:300px;
+  gap:20px;
+  justify-content:center;
   
 }
 
