@@ -12,6 +12,7 @@ import Signup from "./components/SignUpPage/SignUpPage";
 import WorkOutProgrammesPage from "./components/WorkOutProgrammesPage/WorkOutProgrammesPage";
 import HealthyLivingPage from "./components/HealthyLivingPage/HealthyLivingPage"
 import WorkOutsPage from "./components/WorkOutsPage/WorkOutsPage";
+import UserProfile from "./components/UserProfilePage/UserProfilePage";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
           <Route path="/workout-programmes" element={<WorkOutProgrammesPage />}/>
           <Route path="/healthy-living" element={<HealthyLivingPage />}/>
           <Route path ="/workouts" element={<WorkOutsPage />}/>
+          <Route path="/user-profile" element={<UserProfile />}/>
         </Routes>
       </div>
     </Router>
