@@ -17,5 +17,5 @@ test("Once user clicks on the healthy living button, it navigates user to health
   const button = screen.getByRole('button',{name:/healthy living/i});
   user.click(button);
   expect(mockedUsedNavigate).toHaveBeenCalledTimes(1);
-  expect(mockedUsedNavigate).toHaveBeenCalledWith('/healthy_living')
+  expect(mockedUsedNavigate).toHaveBeenCalledWith('/healthy-living')
 });
