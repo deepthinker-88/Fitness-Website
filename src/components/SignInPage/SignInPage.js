@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BackToHomePageButton from "../BackToHomePageButton/BackToHomePageButton";
-import axios from "axios";
-const profileUrl = process.env.REACT_APP_PROFILE_PAGE_ENDPOINT;
 
 export default function SignIn() {
   const navigate = useNavigate();
@@ -11,30 +9,33 @@ export default function SignIn() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    try {
+      const savedUserDetails = {
+        email,
+        password,
+      };
 
-    const savedUserDetails = {
-      email,
-      password,
-    };
-
-  try {
-    const response = await axios.post(profileUrl, savedUserDetails);
-    if (response.status === 200) {
-      alert("You have signed in successfully");
-      navigate("/user-profile");
-    } else {
-      alert(`Login failed: ${response.data.message}`);
-    }
-  } catch (error) {
-    if (error.response && error.response.status === 401) {
+      const response = await fetch("http://localhost:3005/sign-in", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(savedUserDetails),
+      });
+      if (response.ok) {
+        const data = await response.json();
+        alert("You have signed in successfully");
+        navigate("/user-profile");
+        return data;
+      } else {
+        alert("Incorrect email or password");
+      }
+    } catch (error) {
       alert("Incorrect email or password");
-    } else {
-      alert("An error occurred. Please try again later.");
+      console.log("Error", error);
     }
-    console.error("Error during login:", error);
-  }
-  }  
-
+  };
   return (
     <div>
       <form onSubmit={handleLogin}>
