@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import BackToHomePageButton from "../BackToHomePageButton/BackToHomePageButton";
-const apiUrl = process.env.REACT_APP_API_URL;
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -11,32 +9,41 @@ export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState(null);
 
   const handleSignUp = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      setError("Passwords do not match");
+      alert("Passwords do not match");
       return;
     }
     try {
       const userDetails = {
-        firstname,
-        lastname,
-        email,
-        password,
+        firstname: firstname,
+        lastname: lastname,
+        email: email,
+        password: password,
         confirmPassword,
       };
-
-      const response = await axios.post(apiUrl, userDetails);
-      if (response.status === 201) {
+      const response = await fetch("http://localhost:3005/sign-up", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userDetails),
+      });
+      if (response.ok) {
+        const data = await response.json();
         alert("You have successfully signed up");
         navigate("/sign-in");
+        return data;
+      } else {
+        const dataError = await response.json();
+        alert("An error occured on sign up");
+        return `${dataError}`;
       }
     } catch (error) {
-      console.log(
-        `Error saving user details to database: ${error.response.data}`
-      );
+      alert("An error occurred");
     }
   };
 
@@ -80,7 +87,7 @@ export default function Signup() {
           required
           autoComplete="new-password"
         />
-        error && <p style={{ color: "red" }}>{error}</p>
+
         <button className="sign-up-button-sign-up-page" type="submit">
           Signup
         </button>
