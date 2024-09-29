@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 export default function WorkOutButton() {
   const navigate = useNavigate();
 
-  const goToWorkoutsPage = () => {
+  const handleGoToWorkoutsPage = () => {
     navigate("/workouts");
   };
 
@@ -12,7 +12,7 @@ export default function WorkOutButton() {
     <div>
       <button
         className="button-container"
-        onClick={goToWorkoutsPage}
+        onClick={handleGoToWorkoutsPage}
       >
         Workouts
       </button>
