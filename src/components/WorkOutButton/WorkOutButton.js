@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function WorkOutButton() {
   const navigate = useNavigate();
-  const handleClick = () => {
-  };
 
   const goToWorkoutsPage = () => {
     navigate("/workouts");
@@ -14,10 +12,7 @@ export default function WorkOutButton() {
     <div>
       <button
         className="button-container"
-        onClick={() => {
-          goToWorkoutsPage();
-          handleClick();
-        }}
+        onClick={goToWorkoutsPage}
       >
         Workouts
       </button>
