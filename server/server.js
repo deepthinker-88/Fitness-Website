@@ -25,7 +25,24 @@ app.get("/users", async (req, res) => {
   }
 });
 
-app.post("/users", async (req, res) => {
+
+app.post("/sign-in", async (req, res) => {
+  try {
+    const { email,password} = req.body;
+    const findUser = await User.findOne({ email,password });
+    if (!findUser) {
+    res.status(404).json({ message: "User not found" }); 
+    
+    }
+    else{
+    return res.status(200).json(findUser);
+    };
+  }catch (error) {
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+app.post("/sign-up", async (req, res) => {
   try {
     const { firstname, lastname, email, password, confirmPassword } = req.body;
     const newUser = new User({
@@ -40,7 +57,38 @@ app.post("/users", async (req, res) => {
   } catch (error) {
     res
       .status(500)
-      .send(`There has been an error saving the saved user ${error}`);
+      console.log(`There has been an error saving the saved user ${error}`);
+  }
+});
+
+
+app.get("/user-profile/",async(req,res) => {
+  try{
+  const {id} = req.params;
+  const navigateUser = await User.findById(id);
+  if(!navigateUser){
+    return res.status(404).json({message:"User not logged in"})
+
+  }else{
+    res.status(200).json({message:"User profile found"})
+  }
+}catch(error){
+    console.log(error);
+  }
+  }
+)
+
+app.delete("/delete/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await User.findByIdAndDelete(id);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    res.status(200).json({ message: "User deleted successfully" });
+  } catch (error) {
+    console.log(`Unable to delete user: ${error}`);
+    res.status(500).json({ message: "Internal server error" });
   }
 });
 
