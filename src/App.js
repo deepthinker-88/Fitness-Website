@@ -62,7 +62,7 @@ function App() {
           />
           <Route
             path="/workouts"
-            element={<WorkOutsPage title="Workouts Page" />}
+            element={<WorkOutsPage title="Workouts" />}
           />
           <Route
             path="/user-profile"
