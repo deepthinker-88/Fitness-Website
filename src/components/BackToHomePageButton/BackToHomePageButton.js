@@ -9,7 +9,7 @@ export default function BackToHomePageButton() {
   };
   return (
     <button onClick={backToHomePage} className="back-to-home-button">
-      Go Back To HomePage
+      Go Back To Home Page
     </button>
   );
 }
