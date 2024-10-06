@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BackToHomePageButton from "../BackToHomePageButton/BackToHomePageButton";
-
+import NavBar from "../NavBar/NavBar";
 export default function Signup() {
   const navigate = useNavigate();
   const [firstname, setFirstName] = useState("");
@@ -49,6 +49,7 @@ export default function Signup() {
 
   return (
     <div>
+      <NavBar />
       <form onSubmit={handleSignUp}>
         <input
           type="text"
@@ -78,6 +79,8 @@ export default function Signup() {
           onChange={(e) => setPassword(e.target.value)}
           required
           autoComplete="password"
+          minLength={5}
+          maxLength={10}
         />
         <input
           type="password"

@@ -16,12 +16,20 @@ test("Displays placeholder and updates First Name input field with user-provided
       <Signup />
     </BrowserRouter>
   );
+
+
   const element = screen.getByPlaceholderText(/enter first name/i);
   expect(element).toBeInTheDocument();
+  
   user.click(element);
-  user.type(element, "example");
+  user.type(element, "example"); 
+  
+
   expect(element.value).toBe("example");
-});
+
+})
+
+
 
 test("Displays placeholder and updates Last Name input field with user-provided text", () => {
   render(
