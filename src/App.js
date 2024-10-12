@@ -1,76 +1,78 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import "./styles.css";
-import SignInButton from "./components/SignInButton/SignInButton";
 import fitness from "./images/fitness.jpg";
-import WorkOutButton from "./components/WorkOutButton/WorkOutButton";
-import WorkOutProgrammesButton from "./components/WorkOutProgrammesButton/WorkOutProgrammesButton";
-import HealthyButton from "./components/HealthyLivingButton/HealthyLivingButton";
-import SignUpButton from "./components/SignUpButton/SignUpButton";
 import SignIn from "./components/SignInPage/SignInPage";
 import Signup from "./components/SignUpPage/SignUpPage";
 import WorkOutProgrammesPage from "./components/WorkOutProgrammesPage/WorkOutProgrammesPage";
 import HealthyLivingPage from "./components/HealthyLivingPage/HealthyLivingPage";
 import WorkOutsPage from "./components/WorkOutsPage/WorkOutsPage";
 import UserProfile from "./components/UserProfilePage/UserProfilePage";
-import Navbar from "./components/NavBar/NavBar";
+import NavBar from "./components/NavBar/NavBar";
+import Footer from "./components/Footer/Footer";
+import ToShowNavbar from "./components/ShowNavBar/ShowNavBar";
 
 function App() {
   return (
-    <Router>
-      <div>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <div>
-                <SignInButton />
-                <SignUpButton />
-                <Navbar />
+    <body className="body">
+      <Router>
+        <div className="background">
+          <ToShowNavbar>
+            <NavBar />
+          </ToShowNavbar>
 
-                <img className="image-dimensions" src={fitness} alt="fitness" />
-                <h1 className="text-colour"> Functional Fitness</h1>
-                <h2 className="text-colour">
-                  Welcome to The Functional Fitness website. Let's get started
-                  to get you in shape
-                </h2>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <div>
+                  <header>
+                    <div></div>
+                    <img
+                      className="fitness-image"
+                      src={fitness}
+                      alt="fitness"
+                    />
+                    <h1 className="main-title">Functional Fitness</h1>
+                    <h2 className="text-colour">
+                      Welcome to The Functional Fitness website. Let's get
+                      started to get you in shape
+                    </h2>
+                  </header>
 
-                <div className="button-container">
-                  <WorkOutProgrammesButton />
-                  <WorkOutButton />
-                  <HealthyButton />
+                  <Footer />
                 </div>
-              </div>
-            }
-          />
+              }
+            />
 
-          <Route path="/sign-up" element={<Signup />} />
-          <Route path="/sign-in" element={<SignIn />} />
-          <Route
-            path="/workout-programmes"
-            element={<WorkOutProgrammesPage title="Workout Programmes" />}
-            
-          />
-          <Route
-            path="/healthy-living"
-            element={
-              <HealthyLivingPage className ="text-colour"
-                title="Maintaining a Healthy Lifestyle"
-                name="Healthy Living Recipes"
-              />
-            }
-          />
-          <Route
-            path="/workouts"
-            element={<WorkOutsPage title="Workouts" />}
-          />
-          <Route
-            path="/user-profile"
-            element={<UserProfile title="Welcome to your UserProfile Page" />}
-          />
-        </Routes>
-      </div>
-    </Router>
+            <Route path="/sign-up" element={<Signup />} />
+            <Route path="/sign-in" element={<SignIn />} />
+            <Route
+              path="/workout-programmes"
+              element={<WorkOutProgrammesPage title="Workout Programmes" />}
+            />
+            <Route
+              path="/healthy-living"
+              element={
+                <HealthyLivingPage
+                  className="text-colour"
+                  title="Maintaining a Healthy Lifestyle"
+                  name="Healthy Living Recipes"
+                />
+              }
+            />
+            <Route
+              path="/workouts"
+              element={<WorkOutsPage title="Workouts" />}
+            />
+            <Route
+              path="/user-profile"
+              element={<UserProfile title="Welcome to your UserProfile Page" />}
+            />
+          </Routes>
+        </div>
+      </Router>
+    </body>
   );
 }
 
