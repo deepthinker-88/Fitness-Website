@@ -2,37 +2,12 @@ h1 {
   margin: 50px;
 }
 
-.sign-in-button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 10px;
-  position:absolute;
-  top:0;
-  right:0;
-}
-
-.sign-up-button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  margin: 10px;
-  cursor: pointer;
-  position: absolute;
-  top: 0px; 
-  right: 120px; 
-}
 body {
-  background-color: black;
+  background-color: white;
 }
 
 .text-colour {
-  color: white;
+  color: black;
   text-align: center;
 }
 
@@ -92,8 +67,15 @@ body {
   right: 289px; 
 }
 
-.back-to-home-button {
 
-  background-color: #007bff;
-  color: white;
+.fitness-image {
+  height: 250px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
+.background-colour{
+  background-color: beige;
+  height:100vh;
+  
+  ;}
