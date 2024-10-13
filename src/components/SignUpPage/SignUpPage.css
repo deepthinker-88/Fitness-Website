@@ -1,0 +1,32 @@
+.navbar-sign-up-page {
+    background-color:black;
+    margin:0;
+    display:flex;
+    justify-content: space-evenly;
+    gap:2rem;
+    padding: 0 1 rem;
+    height: 70px;
+    position:initial;
+}
+
+.first-name-input{
+    line-height:50px;
+    margin-bottom:auto;
+    
+}
+.last-name-input{
+    line-height:50px;
+}
+
+.email-input{
+    line-height:50px;
+
+}
+
+.password-input{
+    line-height:50px;
+
+}
+.confirm-password-input{
+    line-height:50px;
+}
