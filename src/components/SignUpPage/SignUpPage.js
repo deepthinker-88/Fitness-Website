@@ -94,8 +94,8 @@ export default function Signup() {
           autoComplete="new-password"
         />
 
-        <button className="sign-up-button-sign-up-page" type="submit">
-          Signup
+        <button className="sign-up-button" type="submit">
+          Sign up
         </button>
       </form>
     </div>
