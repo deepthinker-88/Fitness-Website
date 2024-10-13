@@ -40,6 +40,6 @@ body{
 
 .navbar li:hover{
   background-color: grey;
-  
-  
+  font-size:25px;
+
 }
