@@ -14,65 +14,56 @@ import ToShowNavbar from "./components/ShowNavBar/ShowNavBar";
 
 function App() {
   return (
-    <body className="body">
+    <div className="background-colour">
       <Router>
-        <div className="background">
-          <ToShowNavbar>
-            <NavBar />
-          </ToShowNavbar>
+        <ToShowNavbar>
+          <NavBar />
+        </ToShowNavbar>
 
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <div>
-                  <header>
-                    <div></div>
-                    <img
-                      className="fitness-image"
-                      src={fitness}
-                      alt="fitness"
-                    />
-                    <h1 className="main-title">Functional Fitness</h1>
-                    <h2 className="text-colour">
-                      Welcome to The Functional Fitness website. Let's get
-                      started to get you in shape
-                    </h2>
-                  </header>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <div>
+                <header>
+                  <div></div>
+                  <img className="fitness-image" src={fitness} alt="fitness" />
+                  <h1 className="main-title">Functional Fitness</h1>
+                  <h2 className="text-colour">
+                    Welcome to The Functional Fitness website. Let's get started
+                    to get you in shape
+                  </h2>
+                </header>
 
-                  <Footer />
-                </div>
-              }
-            />
+                <Footer />
+              </div>
+            }
+          />
 
-            <Route path="/sign-up" element={<Signup />} />
-            <Route path="/sign-in" element={<SignIn />} />
-            <Route
-              path="/workout-programmes"
-              element={<WorkOutProgrammesPage title="Workout Programmes" />}
-            />
-            <Route
-              path="/healthy-living"
-              element={
-                <HealthyLivingPage
-                  className="text-colour"
-                  title="Maintaining a Healthy Lifestyle"
-                  name="Healthy Living Recipes"
-                />
-              }
-            />
-            <Route
-              path="/workouts"
-              element={<WorkOutsPage title="Workouts" />}
-            />
-            <Route
-              path="/user-profile"
-              element={<UserProfile title="Welcome to your UserProfile Page" />}
-            />
-          </Routes>
-        </div>
+          <Route path="/sign-up" element={<Signup />} />
+          <Route path="/sign-in" element={<SignIn />} />
+          <Route
+            path="/workout-programmes"
+            element={<WorkOutProgrammesPage title="Workout Programmes" />}
+          />
+          <Route
+            path="/healthy-living"
+            element={
+              <HealthyLivingPage
+                className="text-colour"
+                title="Maintaining a Healthy Lifestyle"
+                name="Healthy Living Recipes"
+              />
+            }
+          />
+          <Route path="/workouts" element={<WorkOutsPage title="Workouts" />} />
+          <Route
+            path="/user-profile"
+            element={<UserProfile title="Welcome to your UserProfile Page" />}
+          />
+        </Routes>
       </Router>
-    </body>
+    </div>
   );
 }
 
