@@ -41,33 +41,6 @@ body {
 }
 
 
-.sign-up-button-sign-up-page {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  margin: 10px;
-  cursor: pointer;
-  position: right;
-  top: -13px; 
-  left: 736px; 
-}
-
-.sign-in-button-sign-in-page {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  margin: 10px;
-  cursor: pointer;
-  position: right;
-  top: -13px; 
-  right: 289px; 
-}
-
-
 .fitness-image {
   height: 250px;
   display: block;
@@ -77,5 +50,5 @@ body {
 .background-colour{
   background-color: beige;
   height:100vh;
-  
-  ;}
+}
+
