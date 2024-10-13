@@ -30,3 +30,14 @@
 .confirm-password-input{
     line-height:50px;
 }
+.sign-up-button{
+    font-family:'LuckiestGuy';
+    font-size:20px;
+    background-color:black;
+    color:white;
+  }
+
+.sign-up-button:hover{
+    background-color:grey;
+    
+}
