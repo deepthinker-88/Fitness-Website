@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BackToHomePageButton from "../BackToHomePageButton/BackToHomePageButton";
-
+import "./SignInPage.css";
 export default function SignIn() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -38,8 +38,13 @@ export default function SignIn() {
   };
   return (
     <div>
+      <header className="navbar-sign-in-page">
+        <BackToHomePageButton />
+      </header>
+
       <form onSubmit={handleLogin}>
         <input
+          className="e-mail-input"
           type="email"
           placeholder="Please enter Email"
           value={email}
@@ -49,6 +54,7 @@ export default function SignIn() {
         />
 
         <input
+          className="password-input"
           type="password"
           placeholder="Enter your password"
           value={password}
@@ -56,9 +62,8 @@ export default function SignIn() {
           required
           autoComplete="current-password"
         />
-        <button className="sign-in-button-sign-in-page">Sign In</button>
+        <button className="sign-in-button ">Sign In</button>
       </form>
-      <BackToHomePageButton />
     </div>
   );
 }
