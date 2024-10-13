@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BackToHomePageButton from "../BackToHomePageButton/BackToHomePageButton";
-import NavBar from "../NavBar/NavBar";
+import './SignUpPage.css'
 export default function Signup() {
   const navigate = useNavigate();
   const [firstname, setFirstName] = useState("");
@@ -49,22 +49,25 @@ export default function Signup() {
 
   return (
     <div>
-      <NavBar />
-      <form onSubmit={handleSignUp}>
-        <input
+      <header className="navbar-sign-up-page">
+      <BackToHomePageButton />
+      </header>
+      
+      <form  onSubmit={handleSignUp}>
+        <input className="first-name-input"
           type="text"
           placeholder="Enter first name"
           value={firstname}
           onChange={(e) => setFirstName(e.target.value)}
         />
-        <input
+        <input className="last-name-input" 
           type="text"
           placeholder="Enter last name"
           value={lastname}
           onChange={(e) => setLastName(e.target.value)}
         />
 
-        <input
+        <input className="email-input"
           type="email"
           placeholder="Enter email"
           value={email}
@@ -72,7 +75,7 @@ export default function Signup() {
           required
           autoComplete="username"
         />
-        <input
+        <input className="password-input"
           type="password"
           placeholder="Enter password"
           value={password}
@@ -82,7 +85,7 @@ export default function Signup() {
           minLength={5}
           maxLength={10}
         />
-        <input
+        <input className="confirm-password-input"
           type="password"
           placeholder="Confirm password"
           value={confirmPassword}
@@ -95,7 +98,6 @@ export default function Signup() {
           Signup
         </button>
       </form>
-      <BackToHomePageButton />
     </div>
   );
 }
