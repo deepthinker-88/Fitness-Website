@@ -1,15 +1,10 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import "./BackToHomePageButton.css";
 
 export default function BackToHomePageButton() {
-  const navigate = useNavigate();
-
-  const backToHomePage = () => {
-    navigate("/");
-  };
   return (
-    <button onClick={backToHomePage} className="back-to-home-button">
-      Go Back To Home Page
-    </button>
+    <li className="back-to-homepage">
+      <a href="/">back to homepage</a>{" "}
+    </li>
   );
 }
