@@ -25,3 +25,11 @@
 .logo3 {
   width: 25px;
 }
+
+.contact:hover {
+  font-size: 25px;
+}
+
+a:hover {
+  font-size: 25px;
+}
