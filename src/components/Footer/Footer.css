@@ -1,0 +1,27 @@
+@font-face {
+  font-family: "SixtyfourConvergence";
+  src: url("../../styles/fonts/LuckiestGuy-Regular.ttf") format("truetype");
+}
+
+.footer {
+  background-color: black;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  font-family: "LuckiestGuy";
+  height: 150px;
+}
+.logo1 {
+  width: 25px;
+  margin-right: 5px;
+}
+.logo2 {
+  width: 25px;
+  margin-right: 5px;
+}
+.logo3 {
+  width: 25px;
+}
