@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BackToHomePageButton from "../BackToHomePageButton/BackToHomePageButton";
 import "./SignInPage.css";
+import Footer from "../Footer/Footer";
+
 export default function SignIn() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -64,6 +66,7 @@ export default function SignIn() {
         />
         <button className="sign-in-button ">Sign In</button>
       </form>
+      <Footer />
     </div>
   );
 }
