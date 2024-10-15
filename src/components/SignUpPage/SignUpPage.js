@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BackToHomePageButton from "../BackToHomePageButton/BackToHomePageButton";
-import './SignUpPage.css'
+import './SignUpPage.css';
+import Footer from "../Footer/Footer";
 export default function Signup() {
   const navigate = useNavigate();
   const [firstname, setFirstName] = useState("");
@@ -98,6 +99,7 @@ export default function Signup() {
           Sign up
         </button>
       </form>
+      <Footer />
     </div>
   );
 }
