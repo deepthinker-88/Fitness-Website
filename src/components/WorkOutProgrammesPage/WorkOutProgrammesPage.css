@@ -1,0 +1,15 @@
+.navbar-workoutprogrammes-page{
+    background-color:black;
+    margin:0;
+    display:flex;
+    justify-content: space-evenly;
+    gap:2rem;
+    padding: 0 1 rem;
+    height: 70px;
+    position:initial;
+
+}
+.content{
+    background-color: beige;
+    height:200vh;
+}
