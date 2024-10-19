@@ -41,3 +41,12 @@
     background-color:grey;
     
 }
+.content{
+    background-color: beige;
+    height:100vh;
+}
+.position {
+    position: absolute; 
+    bottom: 0;
+    
+}
