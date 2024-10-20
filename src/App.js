@@ -24,19 +24,14 @@ function App() {
           <Route
             path="/"
             element={
-              <div>
-                <header>
-                  <div></div>
-                  <img className="fitness-image" src={fitness} alt="fitness" />
-                  <h1 className="main-title">Functional Fitness</h1>
-                  <h2 className="text-colour">
-                    Welcome to The Functional Fitness website. Let's get started
-                    to get you in shape
-                  </h2>
-                </header>
-
-                <Footer />
-              </div>
+              <main className="content">
+                <img className="fitness-image" src={fitness} alt="fitness" />
+                <h1 className="main-title">Functional Fitness</h1>
+                <h2 className="text-colour">
+                  Welcome to The Functional Fitness website. Let's get started
+                  to get you in shape
+                </h2>
+              </main>
             }
           />
 
@@ -50,7 +45,7 @@ function App() {
             path="/healthy-living"
             element={
               <HealthyLivingPage
-                className="text-colour"
+                className="font-style"
                 title="Maintaining a Healthy Lifestyle"
                 name="Healthy Living Recipes"
               />
@@ -62,6 +57,7 @@ function App() {
             element={<UserProfile title="Welcome to your UserProfile Page" />}
           />
         </Routes>
+        <Footer />
       </Router>
     </div>
   );
