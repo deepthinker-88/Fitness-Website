@@ -43,7 +43,7 @@
   }
 }
 
-.text-colour{
+.font-style{
   font-family: 'LuckiestGuy', sans-serif;
   margin: 1px;
 }
@@ -58,4 +58,10 @@
   height:350px;
   text-align:center;
   right:100
+}
+
+.text-colour{
+  font-family: 'LuckiestGuy';
+  text-align: center;
+  
 }
