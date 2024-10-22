@@ -11,5 +11,8 @@
 }
 .content{
     background-color: beige;
-    height:200vh;
+    height:100vh;
+}
+.font{
+    font-family:'LuckiestGuy';
 }
