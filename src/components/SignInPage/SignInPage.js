@@ -27,6 +27,7 @@ export default function SignIn() {
       if (response.ok) {
         const data = await response.json();
         alert("You have signed in successfully");
+        localStorage.setItem("userEmail", email);
         navigate("/user-profile");
         return data;
       } else {
