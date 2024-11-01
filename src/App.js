@@ -46,7 +46,7 @@ function App() {
             element={
               <HealthyLivingPage
                 className="font-style"
-                title="Maintaining a Healthy Lifestyle"
+                title="Healthy foods for a healthy lifestyle"
                 name="Healthy Living Recipes"
               />
             }
@@ -54,7 +54,13 @@ function App() {
           <Route path="/workouts" element={<WorkOutsPage title="Workouts" />} />
           <Route
             path="/user-profile"
-            element={<UserProfile title="Welcome to your UserProfile Page" />}
+            element={
+              <UserProfile
+                title="Welcome to your HomeProfile Page"
+                day="Select Your Workout Day"
+                workout="Select Your Workout"
+              />
+            }
           />
         </Routes>
         <Footer />
