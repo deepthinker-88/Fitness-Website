@@ -17,7 +17,7 @@ export default function HealthyLivingPage(props) {
       </header>
       <h1 className="font">{props.title}</h1>
 
-      <ul>
+      <ul className="ul">
         {images.map((item,index) => (
           <li>
             <img src={item} alt="Food Items" />
