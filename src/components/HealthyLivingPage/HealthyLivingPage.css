@@ -23,5 +23,8 @@
     height:200vh;
   }
 .font{
-    font-family: 'LuckiestGuy';
+    font-family: 'LuckiestGuy'; 
+}
+.ul{
+  list-style-type:none
 }
