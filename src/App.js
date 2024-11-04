@@ -56,7 +56,7 @@ function App() {
             path="/user-profile"
             element={
               <UserProfile
-                title="Welcome to your HomeProfile Page"
+                title="Welcome to your UserProfile Page"
                 day="Select Your Workout Day"
                 workout="Select Your Workout"
                 workout_type = "Select Your Type Of workout"
