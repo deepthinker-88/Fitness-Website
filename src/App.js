@@ -59,6 +59,7 @@ function App() {
                 title="Welcome to your HomeProfile Page"
                 day="Select Your Workout Day"
                 workout="Select Your Workout"
+                workout_type = "Select Your Type Of workout"
               />
             }
           />
