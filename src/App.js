@@ -11,6 +11,7 @@ import UserProfile from "./components/UserProfilePage/UserProfilePage";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import ToShowNavbar from "./components/ShowNavBar/ShowNavBar";
+import fitnessImage from "./images/mainFitnessImage.png"
 
 function App() {
   return (
@@ -31,10 +32,11 @@ function App() {
                   Welcome to The Functional Fitness website. Let's get started
                   to get you in shape
                 </h2>
+                <img src ={fitnessImage} alt="main"/>
               </main>
             }
           />
-
+          
           <Route path="/sign-up" element={<Signup />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route
@@ -64,6 +66,7 @@ function App() {
             }
           />
         </Routes>
+        
         <Footer />
       </Router>
     </div>

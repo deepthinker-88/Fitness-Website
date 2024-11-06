@@ -12,17 +12,19 @@ export default function Signup() {
 
   const handleSignUp = async (e) => {
     e.preventDefault();
-    if (password !== confirmPassword) {
-      alert("Passwords do not match");
-      return;
-    }
+    password ===confirmPassword? alert('Signed in'):alert('not signed in')
+    // if (password !== confirmPassword) {
+    //   alert("Passwords do not match");
+    //   return;
+    // }
+  
     try {
       const userDetails = {
         firstname: firstname,
         lastname: lastname,
         email: email,
         password: password,
-        confirmPassword,
+        confirmPassword:confirmPassword,
       };
       const response = await fetch("http://localhost:3005/sign-up", {
         method: "POST",

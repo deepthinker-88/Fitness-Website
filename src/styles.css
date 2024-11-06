@@ -6,9 +6,10 @@ body {
   background-color: white;
 }
 
-.text-colour {
+.font-style {
   color: black;
   text-align: center;
+  font-family: 'LuckiestGuy';
 }
 
 .center-title {
@@ -21,26 +22,6 @@ body {
 
 }
 
-.button-container {
-  display:flex;
-  gap:20px;
-  justify-content:center;
-  
-}
-
-.button-container button{
-  flex:none;
-  gap:10x;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 10px;
-}
-
-
 .fitness-image {
   height: 250px;
   display: block;
@@ -49,6 +30,13 @@ body {
 }
 .background-colour{
   background-color: beige;
-  height:100vh;
+  /* height:20vh;  */
+  /* background-size:cover; */
 }
 
+.content{
+  background-color: beige;
+  height:200vh; 
+  
+ 
+}

@@ -16,3 +16,17 @@
 .font{
     font-family:'LuckiestGuy';
 }
+
+.workout-text{
+    font-family:'LuckiestGuy';
+}
+
+.img{
+    
+    margin:auto;
+    display:flex;
+    text-align: center;
+    padding: 1em;
+    
+    
+}

@@ -11,5 +11,38 @@
 }
 .content{
     background-color: beige;
-    height:100vh;
+    height:300vh;
+    text-align: center;
+}
+.text{
+    
+    text-align:center;
+    font-family:'LuckiestGuy'
+}
+.button{
+    text-align:center;
+    font-family:'LuckiestGuy';
+    border-color:black;
+    height: 100px;
+    width:100px;
+    
+}
+
+.workout-text{
+    font-family:'LuckiestGuy';
+
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    margin:auto;
+      
+}
+.img{
+   height:350px;
+   width:350px 
 }

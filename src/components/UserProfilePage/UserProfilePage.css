@@ -1,4 +1,4 @@
-.navbar-user-profile-page{
+.navbar-user-profile-page {
   background-color:black;
   margin:0;
   display:flex;
@@ -12,4 +12,10 @@
 .page{
   background-color: beige;
   height:100vh;
+  text-align:center;
+}
+
+.workout-text{
+  font-family:"LuckiestGuy";
+  color:black
 }

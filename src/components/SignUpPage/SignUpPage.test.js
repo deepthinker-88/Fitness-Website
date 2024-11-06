@@ -8,7 +8,7 @@ jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
   useNavigate: () => mockedUsedNavigate,
 }));
-//jest.mock('axios')
+
 
 test("Displays placeholder and updates First Name input field with user-provided text", () => {
   render(
