@@ -82,17 +82,20 @@ test("Displays placeholder and updates Confirm Password input field with user-pr
   expect(element.value).toBe("password123");
 });
 
-test("Once user clicks on Back to Home Page Button on Sign Up Page it navigates user back to the homepage", () => {
+test("Once user clicks on Back to Home Page on Sign Up Page it navigates user back to the homepage", () => {
   render(
     <BrowserRouter>
+     
       <BackToHomePageButton />
+     
     </BrowserRouter>
   );
 
-  const button = screen.getByRole("button", {
-    name: /go back to homepage/i,
-  });
-  user.click(button);
+  const backToHomePageLink = screen.getByRole("link", {
+  name: /back to homepage/i}
+)
+  user.click(backToHomePageLink);
   expect(mockedUsedNavigate).toHaveBeenCalledTimes(1);
   expect(mockedUsedNavigate).toHaveBeenCalledWith("/");
-});
+})
+

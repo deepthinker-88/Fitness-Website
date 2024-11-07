@@ -89,7 +89,7 @@ export default function Signup() {
           required
           autoComplete="password"
           minLength={5}
-          maxLength={10}
+          maxLength={15}
         />
         <input
           className="confirm-password-input"
@@ -99,6 +99,8 @@ export default function Signup() {
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
           autoComplete="new-password"
+          minLength={5}
+          maxLength={15}
         />
 
         <button className="sign-up-button" type="submit">
