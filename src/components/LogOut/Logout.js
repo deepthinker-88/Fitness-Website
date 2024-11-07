@@ -1,10 +1,18 @@
 import React from "react";
 import "./Logout.css";
+import  { useNavigate } from "react-router-dom";
 
 export default function LogoutToHomePageButton() {
-  return (
-    <li className="logout">
-      <a href="/">logout</a>
+  const navigate = useNavigate()
+
+  const handleLogOut = () => {
+    navigate("/")
+  }
+return (
+  
+    <li className="logout" onClick={handleLogOut}>
+      <a href="/">Logout</a>{" "}
     </li>
-  );
+  
+);
 }
