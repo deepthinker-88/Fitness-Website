@@ -10,7 +10,7 @@ jest.mock("react-router-dom", () => ({
   useNavigate: () => mockedUsedNavigate,
 }));
 
-test("Once user clicks on Sign In Link it navigates them to Sign In Page", () => {
+test("Once user clicks on Sign In Link it navigates them to User Profile Page", () => {
   render(
     <BrowserRouter>
       <SignInLink />
@@ -20,5 +20,5 @@ test("Once user clicks on Sign In Link it navigates them to Sign In Page", () =>
   const signInLink = screen.getByRole("link", { name: /sign in/i });
   user.click(signInLink);
   expect(mockedUsedNavigate).toHaveBeenCalledTimes(1);
-  expect(mockedUsedNavigate).toHaveBeenCalledWith("/sign-in");
+  expect(mockedUsedNavigate).toHaveBeenCalledWith("/user-profile");
 });
