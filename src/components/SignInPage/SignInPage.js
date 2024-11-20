@@ -35,7 +35,7 @@ export default function SignIn() {
       }
     } catch (error) {
       alert("Incorrect email or password");
-      console.log("Error", error);
+      return ("Error", error);
     }
   };
   return (
