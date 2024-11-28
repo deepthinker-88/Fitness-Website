@@ -1,8 +1,11 @@
+import jwt from 'jsonwebtoken';
 import dotenv from "dotenv";
 import express from "express";
 import User from "../src/model/User.js";
 import mongoose from "mongoose";
 import cors from "cors";
+import bcrypt from "bcrypt";
+import authenticateToken from './middleware/authMiddleware.js';
 dotenv.config();
 const app = express();
 app.use(cors({ origin: true, credentials: true }));
@@ -26,31 +29,15 @@ app.get("/users", async (req, res) => {
 });
 
 
-app.post("/sign-in", async (req, res) => {
-  try {
-    const { email,password} = req.body;
-    const findUser = await User.findOne({ email,password });
-    if (!findUser) {
-    res.status(404).json({ message: "User not found" }); 
-    
-    }
-    else{
-    return res.status(200).json(findUser);
-    };
-  }catch (error) {
-    res.status(500).json({ message: "Internal server error" });
-  }
-});
-
 app.post("/sign-up", async (req, res) => {
   try {
-    const { firstname, lastname, email, password, confirmPassword } = req.body;
+    const { firstname, lastname, email, password } = req.body;
+    const hashedPassword = await bcrypt.hash(password,10)
     const newUser = new User({
       firstname,
       lastname,
       email,
-      password,
-      confirmPassword,
+      password:hashedPassword,
     });
     const savedUser = await newUser.save();
     res.status(201).json(savedUser);
@@ -62,18 +49,46 @@ app.post("/sign-up", async (req, res) => {
 });
 
 
-app.get("/user-profile/",async(req,res) => {
+
+app.post("/sign-in",async (req, res) => {
+  try {
+    const {email,password} = req.body;
+    const findUser = await User.findOne({ email});
+    if(!findUser){
+      throw new Error("User not found")
+    }
+    const passwordComparison = await bcrypt.compare(password,findUser.password)
+    if(!passwordComparison){
+      return res.status(404).json({message:"Incorrect credentials"})
+    }
+  const token = jwt.sign(
+    { email },
+    process.env.ACCESS_TOKEN_SECRET,
+    { expiresIn: "5m" },)
+  
+    return res.status(200).json({token,message:"Sign-In Successful"});
+    
+  }catch (error) {
+    res.status(500).json({ message: error });
+    
+  }
+});
+
+
+
+app.post("/user-profile",authenticateToken,async(req,res,next) => {
   try{
-  const {id} = req.params;
-  const navigateUser = await User.findById(id);
-  if(!navigateUser){
-    return res.status(404).json({message:"User not logged in"})
+  const {email,password} = req.body;
+  const navigateUser = await User.findOne({email,password});
+  
+    if(!navigateUser){
+      return res.status(404).json(({"Error":"User not found"}))
 
   }else{
     res.status(200).json({message:"User profile found"})
   }
 }catch(error){
-    console.log(error);
+    next(error)
   }
   }
 )
@@ -87,7 +102,6 @@ app.delete("/delete/:id", async (req, res) => {
     }
     res.status(200).json({ message: "User deleted successfully" });
   } catch (error) {
-    console.log(`Unable to delete user: ${error}`);
     res.status(500).json({ message: "Internal server error" });
   }
 });
