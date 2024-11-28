@@ -3,6 +3,7 @@ import "./UserProfilePage.css";
 import { useState, useEffect } from "react";
 import LogoutToHomePageButton from "../LogOut/Logout";
 import UserProfileWorkout from "../UserProfileWorkOutPage/UserProfileWorkout";
+import { useNavigate } from "react-router-dom";
 export default function UserProfile(props) {
   const [userEmail, setUserEmail] = useState("");
   const [currentSelection, setCurrentSelection] = useState({
@@ -10,6 +11,8 @@ export default function UserProfile(props) {
     workout: "",
     workout_type: "",
   });
+  const [isAuthenticated,setIsAuthenticated] = useState(false);
+  const navigate = useNavigate()
 
 
   const [savedSelections, setSavedSelections] = useState([]);
@@ -21,6 +24,17 @@ export default function UserProfile(props) {
       setUserEmail(email);
     }
   }, []);
+
+  useEffect(() => {
+    const pageAuthenticated = localStorage.getItem("authToken");
+    if(pageAuthenticated){
+      setIsAuthenticated(true)
+    }else{
+      setIsAuthenticated(false)
+      navigate('/')
+
+    }
+  },[navigate]);
 
   const handleDayChange = (event) => {
     setCurrentSelection((prev) => ({ ...prev, day: event.target.value }));
