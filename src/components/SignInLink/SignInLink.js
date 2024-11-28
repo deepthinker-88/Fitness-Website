@@ -5,7 +5,7 @@ export default function SignInLink() {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/user-profile");
+    navigate("/sign-in");
   };
 
   return (
