@@ -8,7 +8,7 @@ export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async (e) => {
+  const handleLogin = async (e,token) => {
     e.preventDefault();
     try {
       const savedUserDetails = {
@@ -16,7 +16,7 @@ export default function SignIn() {
         password,
       };
 
-      const response = await fetch("http://localhost:3005/sign-in", {
+      const response = await fetch(process.env.REACT_APP_API_SIGNIN,{
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -26,10 +26,12 @@ export default function SignIn() {
       });
       if (response.ok) {
         const data = await response.json();
+        localStorage.setItem("authToken",data.token)
         alert("You have signed in successfully");
         localStorage.setItem("userEmail", email);
+
         navigate("/user-profile");
-        return data;
+        return data
       } else {
         alert("Incorrect email or password");
       }
