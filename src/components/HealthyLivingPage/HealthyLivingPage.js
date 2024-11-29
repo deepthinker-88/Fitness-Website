@@ -8,8 +8,8 @@ import "./HealthyLivingPage.css";
 
 export default function HealthyLivingPage(props) {
   const images = [healthySalmonPasta, chickenStirFry, burritoBowl];
-  const recipes=['Salmon Pasta','Chicken Stir Fry','Burrito Bowl']
-  
+  const recipes = ["Salmon Pasta", "Chicken Stir Fry", "Burrito Bowl"];
+
   return (
     <div className="content">
       <header className="navbar-healthy-living-page">
@@ -18,24 +18,30 @@ export default function HealthyLivingPage(props) {
       <h1 className="font">{props.title}</h1>
 
       <ul className="ul">
-        {images.map((item,index) => (
-          <li>
+        {images.map((item, index) => (
+          <li key={index}>
             <img src={item} alt="Food Items" />
-            <p className="font">{recipes[index]}</p> 
-           
+            <p className="font">{recipes[index]}</p>
           </li>
         ))}
       </ul>
       <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
       <h2 className="font">Maintaing a healthy lifestyle</h2>
       <br></br>
-      <p className='font'>Consume less calories than you eat</p>
+      <p className="font">Consume less calories than you eat</p>
       <br></br>
       <p className="font">Exercise three times a week</p>
       <br></br>
       <p className="font">Look after your mental health</p>
-
+      <br></br>
+      <p className="font">Drink plenty of water</p>
+      <br></br>
+      <p className="font">Limit processesd foods and sugar</p>
+      <br></br>
+      <p className="font">Limit alcohol intake</p>
     </div>
   );
 }
-
