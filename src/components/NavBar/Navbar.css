@@ -37,6 +37,9 @@ body{
   text-decoration: none;
   font-family: 'LuckiestGuy';
 }
+.navbar li {
+  padding: 15px; 
+}
 
 .navbar li:hover{
   background-color: grey;
