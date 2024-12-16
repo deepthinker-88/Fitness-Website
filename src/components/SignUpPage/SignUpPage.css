@@ -37,10 +37,6 @@
     color:white;
   }
 
-.sign-up-button:hover{
-    background-color:grey;
-    
-}
 .content{
     background-color: beige;
     height:100vh;
