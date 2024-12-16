@@ -3,7 +3,7 @@ import user from "@testing-library/user-event";
 import SignIn from "./SignInPage";
 import { BrowserRouter } from "react-router-dom";
 
-test("Displays palceholder and updates first name and email field", () => {
+test("Displays palceholder and updates first name and email field", async () => {
   render(
     <BrowserRouter>
       <SignIn />
