@@ -12,23 +12,28 @@
 .first-name-input{
     line-height:50px;
     margin-bottom:auto;
+    text-align: center;
     
 }
 .last-name-input{
     line-height:50px;
+    text-align: center;
 }
 
 .email-input{
     line-height:50px;
+    text-align: center;
 
 }
 
 .password-input{
     line-height:50px;
+    text-align: center;
 
 }
 .confirm-password-input{
     line-height:50px;
+    text-align: center;
 }
 .sign-up-button{
     font-family:'LuckiestGuy';
