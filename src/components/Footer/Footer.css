@@ -5,15 +5,17 @@
 
 .footer {
   background-color: black;
-  position: static;
+  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   color: white;
   text-align: center;
   font-family: "LuckiestGuy";
-  height: 155px;
-  line-height: 30px;
+  height: 95px;
+  line-height:10px;
+  margin-top:auto;
+  margin-bottom: 0;
 }
 .logo1 {
   width: 25px;
