@@ -1,7 +1,7 @@
 @font-face {
-  font-family: 'LuckiestGuy';
-  src: url('../src/styles/fonts/LuckiestGuy-Regular.ttf') format('truetype');
-  font-display:block;   
+  font-family: "LuckiestGuy";
+  src: url("../src/styles/fonts/LuckiestGuy-Regular.ttf") format("truetype");
+  font-display: block;
 }
 
 .App {
@@ -43,31 +43,60 @@
   }
 }
 
-.font-style{
-  font-family: 'LuckiestGuy', sans-serif;
+.font-style {
+  font-family: "LuckiestGuy", sans-serif;
   margin: 1px;
 }
 
 .main-title {
-  font-family: 'LuckiestGuy', sans-serif;
-  text-align:center;
-  margin:180px;
-}
-
-.img{
-  height:350px;
-  text-align:center;
-  right:100
-}
-
-.text-colour{
-  font-family: 'LuckiestGuy';
+  font-family: "LuckiestGuy", sans-serif;
   text-align: center;
-  
+  display: flex;
+  align-items: center;
+  color: black;
+  padding: 10px;
+  background-color: beige;
+  font-size: 16px;
+  border-radius: 10px;
+  font-size: 30px;
+  width: 400px;
+  opacity: 0.8;
+  justify-content: center;
+  display: flex;
 }
 
-.main-img{
+.img {
+  height: 350px;
+  text-align: center;
+  right: 100;
+}
+
+.main-img {
   margin-left: auto;
-    margin-right: auto;
-    width: 8em
+  margin-right: auto;
+  width: 8em;
+}
+
+@media (min-width: 60rem) {
+  .main-page {
+    min-height: 100vh;
+    opacity: 0.92;
+    background-image: url("./images/mainFitnessImage.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    text-align: center;
+  }
 }
