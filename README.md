@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# Getting Started with Running My Fitness Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# 1. Project Description
 
-In the project directory, you can run:
+This was my first attempt in cementing my learning in building a full-stack Fitness Website application using the MERN stack. Essentially users can register,log in and access protected routes and choose from available workouts and create a customizable workout plan.
 
-### `npm start`
+The backend uses Node.js, with Express whilst the frontend is built with React.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# 2. Technologies Used/Other Tools  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Frontend: React, React Router\
+Backend: Node.js, Express.js, MongoDB, Mongoose, JWT\
+Database: MongoDB\
+Testing: Jest\
+Authentication: JWT, bcrypt\
+Styling: CSS
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# 3. Installation
 
-### `npm run build`
+To clone the project:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+use `git clone https://github.com/deepthinker-88/Fitness-Website.git `
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Backend Setup\
+`cd server`\
+`npm install` to install dependencies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Frontend Setup\
+`cd src`\
+`npm install` to install dependencies
 
-### `npm run eject`
+Creating Environment Variables
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Create .env files for both backend and frontend.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Navigate to the `server` directory to access the backend  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+PORT = 3005\
+MONGODB_URI=mongodb://<your_mongo_host>:<your_mongo_port>/<your_database>\
+ACCESS_TOKEN_SECRET=<your_access_token_secret>\
+REFRESH_TOKEN_SECRET=<your_refresh_token_secret>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Navigate to the `src` directory to access the frontend  
 
-## Learn More
+REACT_APP_API_URL=http://localhost:3005/users  
+REACT_APP_ENV=development\
+REACT_APP_API_SIGNUP=http://localhost:3005/sign-up  
+REACT_APP_API_SIGNIN=http://localhost:3005/sign-in
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# 4. Running the project
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Make sure to download and install MongoDB using `brew install mongodb-community`\
+Start MongoDB using `brew services start mongodb/brew/mongodb-community`\
+Verify MongoDB is running by using `mongosh`
 
-### Code Splitting
+Run Backend\
+`cd server`\
+`npm install`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Run Frontend\
+`cd src`\
+`npm start`
 
-### Analyzing the Bundle Size
+##  Running Tests
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+To run the test suite for both the frontend and backend, in the root directory, run `npm test -a` to run all tests.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+# 5. What I learned whilst making the project
 
-### Deployment
+The project is a culmination of myself learning HTML, CSS JavaScript and React and how these technologies work in conjunction with each other to create a full-stack application.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+I had a rough idea on how I wanted the project to look visually but I decided to use figma for UI/UX planning to create a mental model of how each aspect of the project should look.
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+By mapping out visually beforehand how I wanted the project to look allowed me to break down tasks into smaller parts and tackle them systematically - an essential skill for any developer.  
+
+Thanks for taking the time to view my project, first of many to come 👍🏽
+
