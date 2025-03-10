@@ -42,6 +42,9 @@ export default function HealthyLivingPage(props) {
       <p className="font">Limit processesd foods and sugar</p>
       <br></br>
       <p className="font">Limit alcohol intake</p>
+      <br></br>
+      <br></br>
+      <br></br>
     </div>
   );
 }
