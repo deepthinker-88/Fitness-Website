@@ -1,0 +1,19 @@
+
+body, html {
+    height: 100vh;
+    margin: 0; 
+    overflow: hidden;
+}
+  
+ 
+    .home-page--title{
+        border: 2px solid rgb(95 97 110);
+        border-radius: 0.5em;
+        padding: 10px;
+        background-color: beige;
+        text-align: center;
+        font-size: 2rem;
+    }
+    
+  
+  
