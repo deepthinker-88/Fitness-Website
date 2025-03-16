@@ -1,0 +1,68 @@
+:root {
+  --property-picture-info: green;
+}
+.profile--title {
+  font-family: "LuckiestGuy";
+  color: var(--property-picture-info);
+  font-size: 1rem;
+}
+
+.profile-upload-container {
+  justify-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.image-selector {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  text-align: center;
+  margin: 0 auto;
+}
+.profile--title {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.profile--picture {
+  font-family: "LuckiestGuy";
+  color: var(--property-picture-info);
+  font-size: 1rem;
+}
+
+.savedProfilePic {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  margin: 0 auto;
+}
+.profile-pic-button {
+  border: 1px solid black;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.profile-pic-button:hover {
+  background-color: whitesmoke;
+}
+.profile-preview {
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.save-profile-pic-button {
+  border: 1px solid black;
+  font-weight: bold;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: 15%;
+  
+}
+.confirmation--message{
+  color:var(--property-picture-info);
+  font-family: 'LuckiestGuy';
+}
