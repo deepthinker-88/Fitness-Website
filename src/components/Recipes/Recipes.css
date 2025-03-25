@@ -1,0 +1,11 @@
+
+.recipe-food--finder
+{
+    height:100vh;
+    overflow-y: auto;
+    font-family: 'LuckiestGuy';
+}
+
+ul{
+    list-style: none;
+}
