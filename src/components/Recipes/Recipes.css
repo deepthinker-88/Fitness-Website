@@ -9,3 +9,8 @@
 ul{
     list-style: none;
 }
+
+button{
+    font-family: 'LuckiestGuy';
+    padding:0.5rem;
+}
