@@ -45,7 +45,7 @@
   }
 
   .sign-up-page{
-    background-color: beige;
+    background-color:var(--page-background-color);
     height:100vh;
     text-align: center;
     overflow-y:auto;
