@@ -9,32 +9,15 @@
     position:initial;
 }
 
-.first-name-input{
-    line-height:50px;
-    margin-bottom:auto;
-    text-align: center;
-    
-}
-.last-name-input{
-    line-height:50px;
-    text-align: center;
-}
-
-.email-input{
-    line-height:50px;
-    text-align: center;
-
-}
-
-.password-input{
-    line-height:50px;
-    text-align: center;
-
-}
+.first-name-input,
+.last-name-input,
+.email-input,
+.password-input,
 .confirm-password-input{
-    line-height:50px;
     text-align: center;
+    line-height: var(--input-line-height);
 }
+
 .sign-up-button{
     font-family:'LuckiestGuy';
     font-size:20px;
@@ -46,7 +29,7 @@
 
   .sign-up-page{
     background-color:var(--page-background-color);
-    height:100vh;
+    height:var(--responsive-page-height);
     text-align: center;
     overflow-y:auto;
 }
