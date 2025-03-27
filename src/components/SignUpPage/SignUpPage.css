@@ -4,7 +4,7 @@
     display:flex;
     justify-content: space-evenly;
     gap:2rem;
-    padding: 0 1 rem;
+    padding: 0 1rem;
     height: 70px;
     position:initial;
 }
@@ -44,12 +44,27 @@
     margin-left:5px;
   }
 
-.content{
+  .sign-up-page{
     background-color: beige;
     height:100vh;
+    text-align: center;
+    overflow-y:auto;
 }
-.position {
-    position: absolute; 
-    bottom: 0;
+
+@media(max-width:37.5rem){
+    .form--main {
+        height: 70vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1rem;
+      }
     
+      .form--input {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        justify-content: center;
+        align-items: center;
+      }
 }
