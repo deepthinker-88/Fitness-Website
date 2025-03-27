@@ -1,36 +1,19 @@
-h1 {
-  margin: 50px;
-}
-
-body {
-  background-color: white;
-}
-
-.font-style {
-  color: black;
-  text-align: center;
+@font-face {
   font-family: 'LuckiestGuy';
+  src: url('../src/styles/fonts/LuckiestGuy-Regular.ttf')format('truetype');
 }
 
-.center-title {
-  color: white;
-  text-align: center;
-}
-
-.image-dimensions{
-    width:300px;
-
-}
-
-.fitness-image {
-  height: 250px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-.background-colour{
-  background-color: beige;
-  
+:root { --property-picture-info: green;
+        --page-background-color:beige;
+        --text-font-color:black;
+        --responsive-page-height:100vh;
 }
 
 
+  .img {
+    margin: auto;
+    display: flex;
+    text-align: center;
+    padding: 1em;
+    width:350px;
+  }
