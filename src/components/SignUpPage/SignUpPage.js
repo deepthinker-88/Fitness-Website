@@ -49,12 +49,12 @@ export default function Signup() {
   };
 
   return (
-    <div className="content">
+    <div className= "sign-up-page">
       <header className="navbar-sign-up-page">
         <BackToHomePageButton />
       </header>
-
-      <form onSubmit={handleSignUp}>
+      <main className="form--main">
+      <form className="form--input"onSubmit={handleSignUp}>
         <input
           className="first-name-input"
           type="text"
@@ -106,6 +106,7 @@ export default function Signup() {
           Sign up
         </button>
       </form>
+      </main>
       <footer></footer>
     </div>
   );
