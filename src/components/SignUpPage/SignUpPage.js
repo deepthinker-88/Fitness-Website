@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BackToHomePageButton from "../BackToHomePageButton/BackToHomePageButton";
+import Footer from "../Footer/Footer"
 import "./SignUpPage.css";
 export default function Signup() {
   const navigate = useNavigate();
@@ -107,7 +108,7 @@ export default function Signup() {
         </button>
       </form>
       </main>
-      <footer></footer>
+      <Footer />
     </div>
   );
 }
