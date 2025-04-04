@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BackToHomePageButton from "../BackToHomePageButton/BackToHomePageButton";
+import Footer from "../Footer/Footer"
 import "./SignInPage.css";
 
 export default function SignIn() {
@@ -41,12 +42,12 @@ export default function SignIn() {
     }
   };
   return (
-    <div className="content">
+    <div className="sign-in-page">
       <header className="navbar-sign-in-page">
         <BackToHomePageButton />
       </header>
-
-      <form onSubmit={handleLogin}>
+      <main className="form--main">
+      <form className="form--input"onSubmit={handleLogin}>
         <input
           className="e-mail-input"
           type="email"
@@ -68,6 +69,8 @@ export default function SignIn() {
         />
         <button className="sign-in-button ">Sign In</button>
       </form>
+      </main>
+      <Footer />
     </div>
   );
 }

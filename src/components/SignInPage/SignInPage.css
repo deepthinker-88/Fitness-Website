@@ -31,7 +31,16 @@
     margin-left:5px;
 }
 
-.content{
-background-color: beige;
-height:100vh; 
-}
+
+
+    .sign-in-page{
+        background-color:var(--page-background-color);
+        /* min-height:var(--responsive-page-height); */
+        min-height:100dvh;
+        text-align: center;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+    
+ 
