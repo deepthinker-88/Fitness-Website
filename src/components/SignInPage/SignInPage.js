@@ -34,10 +34,10 @@ export default function SignIn() {
         navigate("/user-profile");
         return data
       } else {
-        alert("Incorrect email or password");
+        alert("Incorrect details");
       }
     } catch (error) {
-      alert("Incorrect email or password");
+      alert("Incorrect details");
       return ("Error", error);
     }
   };
