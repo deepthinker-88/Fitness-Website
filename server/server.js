@@ -109,4 +109,3 @@ app.delete("/delete/:id", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Fitness app listening on port ${PORT}`);
 });
-console.log(process.env.MONGODB_URI);
