@@ -14,10 +14,19 @@ const PORT = process.env.PORT || 3001;
 
 app.use(express.json());
 
-mongoose
-  .connect(process.env.MONGODB_URI)
-  .then(() => console.log("Connected to MongoDB"))
-  .catch((err) => console.log(`MongoDB Connection Error: ${err}`));
+
+const connectToMongoDB = async ()=> {
+  try{
+    const mongoDBConnection  = await mongoose.connect(process.env.MONGODB_URI);
+    if(mongoDBConnection){
+      console.log("Connected to MongoDB Succesfully")
+    }
+  }catch(err){
+    console.log("Err",err.message);
+
+  }
+}
+connectToMongoDB()
 
 app.get("/users", async (req, res) => {
   try {
@@ -64,7 +73,7 @@ app.post("/sign-in",async (req, res) => {
   const token = jwt.sign(
     { email },
     process.env.ACCESS_TOKEN_SECRET,
-    { expiresIn: "5m" },)
+    { expiresIn: "1m" },)
   
     return res.status(200).json({token,message:"Sign-In Successful"});
     
