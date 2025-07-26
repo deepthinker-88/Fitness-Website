@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 app.use(cors({ origin: true, credentials: true }));
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3005;
 
 app.use(express.json());
 
@@ -33,7 +33,7 @@ app.get("/users", async (req, res) => {
     const users = await User.find({});
     res.status(200).json(users);
   } catch (error) {
-    console.log(`Can't find users ${error}`);
+    console.log(`Can't find users ${error}:${error.status}`);
   }
 });
 
