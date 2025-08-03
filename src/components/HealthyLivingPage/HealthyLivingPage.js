@@ -47,11 +47,9 @@ export default function HealthyLivingPage({ title }) {
         <a className="font" href= "https://www.mentalhealth.org.uk/explore-mental-health/a-z-topics/physical-activity-and-mental-health">Mental Health and Exercise</a>
         <br></br>
         <p className="font">Drink plenty of water</p>
+        <a className="font" href="https://www.healthline.com/nutrition/7-health-benefits-of-water">Benefits of Drinking Water</a>
         <br></br>
-        <p className="font">Limit processesd foods and sugar</p>
-        <br></br>
-        <p className="font">Limit alcohol intake</p>
-      </section>
+       </section>
       <Footer />
     </div>
   );
