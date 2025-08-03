@@ -44,6 +44,7 @@ export default function HealthyLivingPage({ title }) {
         <a className="font" href="https://www.healthline.com/nutrition/10-benefits-of-exercise">Benefits of Exercise</a>
         <br></br>
         <p className="font">Look after your mental health</p>
+        <a className="font" href= "https://www.mentalhealth.org.uk/explore-mental-health/a-z-topics/physical-activity-and-mental-health">Mental Health and Exercise</a>
         <br></br>
         <p className="font">Drink plenty of water</p>
         <br></br>
