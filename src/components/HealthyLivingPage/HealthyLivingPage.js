@@ -38,6 +38,7 @@ export default function HealthyLivingPage({ title }) {
         <h2 className="healthy-living-title">Maintaing a healthy lifestyle</h2>
         <br></br>
         <p className="font">Consume less calories than you eat</p>
+        <a className="font"href="https://www.calculator.net/calorie-calculator.html">Calorie Calculator</a>
         <br></br>
         <p className="font">Exercise three times a week</p>
         <br></br>
