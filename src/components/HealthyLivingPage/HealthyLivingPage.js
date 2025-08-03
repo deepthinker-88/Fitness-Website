@@ -41,6 +41,7 @@ export default function HealthyLivingPage({ title }) {
         <a className="font"href="https://www.calculator.net/calorie-calculator.html">Calorie Calculator</a>
         <br></br>
         <p className="font">Exercise three times a week</p>
+        <a className="font" href="https://www.healthline.com/nutrition/10-benefits-of-exercise">Benefits of Exercise</a>
         <br></br>
         <p className="font">Look after your mental health</p>
         <br></br>
