@@ -47,7 +47,7 @@ export default function Recipes() {
                 <p>{recipe.strInstructions}</p>
                 <p className="youtube-link">
                   {" "}
-                  YouTube Link : {recipe.strYoutube}
+                  YouTube Link : <a href= {recipe.strYoutube}>Video Recipe Link</a>
                 </p>
               </div>
             );
