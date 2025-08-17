@@ -17,6 +17,9 @@
     text-align: center;
     line-height: var(--input-line-height);
 }
+::placeholder{
+  color:black
+}
 
 .sign-up-button{
     font-family:'LuckiestGuy';
