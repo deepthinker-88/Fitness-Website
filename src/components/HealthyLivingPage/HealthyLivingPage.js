@@ -3,7 +3,9 @@ import "./HealthyLivingPage.css";
 import healthySalmonPasta from "../../images/FoodImages/healthySalmonPasta.png";
 import chickenStirFry from "../../images/FoodImages/healthyChickenStirFry.png";
 import burritoBowl from "../../images/FoodImages/burritoBowl.png";
-import smileyFace from "../../images/HealthyMindsetImages/smileyFace.png"
+import smileyFace from "../../images/HealthyMindsetImages/smileyFace.png";
+import mindfulImage from "../../images/HealthyMindsetImages/mindful.png";
+import sleep from "../../images/HealthyMindsetImages/sleep.png"
 import BackToHomePageButton from "../BackToHomePageButton/BackToHomePageButton";
 import "./HealthyLivingPage.css";
 import Footer from "../Footer/Footer";
@@ -40,7 +42,9 @@ export default function HealthyLivingPage({ title }) {
       <section className="healthy-mindset">
         <h2>Maintaining a healthy Mindset</h2>
         <section className="mental-health-images">
-          <img src={smileyFace} alt="smileyImage" height="200" />
+          <img src={smileyFace} alt="smileyImage" height="150" />
+          <img src={mindfulImage} alt="mindfulImage" height="150"/>
+           <img src={sleep} alt="sleepImage" height="150"/>
         </section>
       </section>
       <section className="healthy-living">
