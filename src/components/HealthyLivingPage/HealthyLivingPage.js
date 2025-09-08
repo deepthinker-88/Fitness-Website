@@ -18,38 +18,68 @@ export default function HealthyLivingPage({ title }) {
       </header>
       <section className="food-images">
         <h1 className="healthy-living-title">{title}</h1>
+        <h2 className="healthy-living-title"> Typical Healthy Meals</h2>
         <ul className="food-list-items">
           {images.map((image, index) => (
             <React.Fragment key={index}>
-              <li>
+              <li className="recipe-item" key={index}>
                 <img
                   className="food-image"
                   alt="food-image"
                   src={image}
                   height="150"
                 />
+                <div className="recipe-text">{recipes[index]}</div>
+                <p>Click on Image For More Info</p>
               </li>
-              <p className="font">{recipes[index]}</p>
             </React.Fragment>
           ))}
         </ul>
       </section>
+      <section className="healthy-mindset">
+        <h2>Maintaining a healthy Mindset</h2>
+        <section className="mental-health-images">
+          <img src={smileyFace} alt="smileyImage" height="200" />
+        </section>
+      </section>
       <section className="healthy-living">
-        <h2 className="healthy-living-title">Maintaing a healthy lifestyle</h2>
+        <h2 className="healthy-living-title">
+          Maintaining a healthy lifestyle
+        </h2>
         <br></br>
         <p className="font">Consume less calories than you eat</p>
-        <a className="font"href="https://www.calculator.net/calorie-calculator.html">Calorie Calculator</a>
+        <a
+          className="font"
+          href="https://www.calculator.net/calorie-calculator.html"
+        >
+          Calorie Calculator
+        </a>
         <br></br>
         <p className="font">Exercise three times a week</p>
-        <a className="font" href="https://www.healthline.com/nutrition/10-benefits-of-exercise">Benefits of Exercise</a>
+        <a
+          className="font"
+          href="https://www.healthline.com/nutrition/10-benefits-of-exercise"
+        >
+          Benefits of Exercise
+        </a>
         <br></br>
         <p className="font">Look after your mental health</p>
-        <a className="font" href= "https://www.mentalhealth.org.uk/explore-mental-health/a-z-topics/physical-activity-and-mental-health">Mental Health and Exercise</a>
+        <a
+          className="font"
+          href="https://www.mentalhealth.org.uk/explore-mental-health/a-z-topics/physical-activity-and-mental-health"
+        >
+          Mental Health and Exercise
+        </a>
         <br></br>
         <p className="font">Drink plenty of water</p>
-        <a className="font" href="https://www.healthline.com/nutrition/7-health-benefits-of-water">Benefits of Drinking Water</a>
+        <a
+          className="font"
+          href="https://www.healthline.com/nutrition/7-health-benefits-of-water"
+        >
+          Benefits of Drinking Water
+        </a>
         <br></br>
-       </section>
+      </section>
       <Footer />
     </div>
   );
