@@ -3,6 +3,7 @@ import "./HealthyLivingPage.css";
 import healthySalmonPasta from "../../images/FoodImages/healthySalmonPasta.png";
 import chickenStirFry from "../../images/FoodImages/healthyChickenStirFry.png";
 import burritoBowl from "../../images/FoodImages/burritoBowl.png";
+import smileyFace from "../../images/HealthyMindsetImages/smileyFace.png"
 import BackToHomePageButton from "../BackToHomePageButton/BackToHomePageButton";
 import "./HealthyLivingPage.css";
 import Footer from "../Footer/Footer";
