@@ -1,3 +1,8 @@
+.recipes{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
 .recipe-food--finder {
   font-family: "LuckiestGuy";
   display: flex;
