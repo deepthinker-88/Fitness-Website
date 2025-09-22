@@ -27,7 +27,7 @@ export default function ConnectToWorkOutApi() {
         const url = `https://api.api-ninjas.com/v1/exercises?muscle=${bodyPartText}`;
         const options = {
           headers: {
-            "X-API-KEY": "tXLcol1ypySPUjamh4rsFw==g9Lj4LHJiEUJqqD8",
+            "X-API-KEY":process.env.REACT_APP_API_KEY,
             "content-type": "application/json",
           },
         };
