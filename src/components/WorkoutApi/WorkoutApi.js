@@ -4,6 +4,7 @@ import "./WorkoutApi.css";
 export default function ConnectToWorkOutApi() {
   const [bodyPartText, setBodyPartText] = useState("");
   const[connectedToApi,setConnectedToApi] = useState(false);
+  const [selectedMuscle,setSelectedMuscle] = useState("");
 
   const fetchBodyWorkouts = async () => {
     if(!bodyPartText.trim()){
@@ -27,7 +28,8 @@ export default function ConnectToWorkOutApi() {
     const resp = await fetch(
       `https://wger.de/api/v2/exerciseinfo/?language=2&muscles=${bodyPartId}`
     );
-    const bodyData = await resp.json();
+    const userTypedMuscleJson = await resp.json();
+    console.log(userTypedMuscleJson)
     
   };
 
