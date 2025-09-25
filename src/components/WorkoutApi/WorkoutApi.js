@@ -3,8 +3,15 @@ import React from "react";
 import "./WorkoutApi.css";
 export default function ConnectToWorkOutApi() {
   const [bodyPartText, setBodyPartText] = useState("");
+  const[connectedToApi,setConnectedToApi] = useState(false);
 
   const fetchBodyWorkouts = async () => {
+    if(!bodyPartText.trim()){
+      return
+    }
+    else{
+      setConnectedToApi(true);
+    }
     const data = await fetch("https://wger.de/api/v2/muscle/");
     const resMuscles = await data.json();
     const musclesJson = await resMuscles.results;
@@ -20,6 +27,8 @@ export default function ConnectToWorkOutApi() {
     const resp = await fetch(
       `https://wger.de/api/v2/exerciseinfo/?language=2&muscles=${bodyPartId}`
     );
+    const bodyData = await resp.json();
+    
   };
 
   return (
