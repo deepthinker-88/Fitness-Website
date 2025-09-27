@@ -2,3 +2,11 @@
 .body-text{
 font-family:"LuckiestGuy";
 }
+
+.workouts-list{
+    list-style:none;
+}
+
+.show-message{
+    color:green
+}
