@@ -6,6 +6,7 @@ export default function ConnectToWorkOutApi() {
   const [connectedToApi, setConnectedToApi] = useState(false);
   const [selectedMuscle, setSelectedMuscle] = useState("");
   const [showMessage, setShowMessage] = useState(false);
+  const [showMuscleExercise,setShowMuscleExercise] = useState("");
 
   const fetchBodyWorkouts = async () => {
     if (!bodyPartText.trim()) {
@@ -38,6 +39,7 @@ export default function ConnectToWorkOutApi() {
 
     const userTypedMuscleJson = await resp.json();
     setSelectedMuscle(bodyName);
+    
   };
 
   return (
@@ -60,7 +62,7 @@ export default function ConnectToWorkOutApi() {
 
         <section>
           {showMessage && connectedToApi && (
-            <h1> {showMessage && <p>Connected To Fitness API ...</p>}</h1>
+            <h1 className="show-message"> {showMessage && <p>Connected To Fitness API ...</p>}</h1>
           )}
           {selectedMuscle && <h3>PrimaryMuscle:{selectedMuscle}</h3>}
         </section>
