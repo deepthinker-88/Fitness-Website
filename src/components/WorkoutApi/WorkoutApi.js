@@ -3,16 +3,17 @@ import React from "react";
 import "./WorkoutApi.css";
 export default function ConnectToWorkOutApi() {
   const [bodyPartText, setBodyPartText] = useState("");
-  const[connectedToApi,setConnectedToApi] = useState(false);
-  const [selectedMuscle,setSelectedMuscle] = useState("");
+  const [connectedToApi, setConnectedToApi] = useState(false);
+  const [selectedMuscle, setSelectedMuscle] = useState("");
+  const [showMessage, setShowMessage] = useState(false);
 
   const fetchBodyWorkouts = async () => {
-    if(!bodyPartText.trim()){
-      return
-    }
-    else{
+    if (!bodyPartText.trim()) {
+      return;
+    } else {
       setConnectedToApi(true);
     }
+
     const data = await fetch("https://wger.de/api/v2/muscle/");
     const resMuscles = await data.json();
     const musclesJson = await resMuscles.results;
@@ -21,16 +22,22 @@ export default function ConnectToWorkOutApi() {
       name: body.name,
       name_en: body.name_en,
     }));
+  
     const matchedBodyPart = bodyParts.find(
       (muscle) => muscle.name_en === bodyPartText
     );
     const bodyPartId = matchedBodyPart.id;
+    const bodyName = matchedBodyPart.name_en;
+
     const resp = await fetch(
       `https://wger.de/api/v2/exerciseinfo/?language=2&muscles=${bodyPartId}`
     );
+
+    setShowMessage(true);
+    setTimeout(() => setShowMessage(false), 5000);
+
     const userTypedMuscleJson = await resp.json();
-    console.log(userTypedMuscleJson)
-    
+    setSelectedMuscle(bodyName);
   };
 
   return (
@@ -51,7 +58,12 @@ export default function ConnectToWorkOutApi() {
         ></input>
         <button onClick={fetchBodyWorkouts}>Enter</button>
 
-        <section></section>
+        <section>
+          {showMessage && connectedToApi && (
+            <h1> {showMessage && <p>Connected To Fitness API ...</p>}</h1>
+          )}
+          {selectedMuscle && <h3>PrimaryMuscle:{selectedMuscle}</h3>}
+        </section>
       </section>
     </>
   );
