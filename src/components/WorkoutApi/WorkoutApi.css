@@ -19,3 +19,7 @@ font-family:"LuckiestGuy";
 .exercise-info{
     width: 50%;
 }
+
+.highlight{
+    border:3px solid green
+}
