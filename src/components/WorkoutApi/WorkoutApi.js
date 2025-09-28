@@ -69,6 +69,9 @@ export default function ConnectToWorkOutApi() {
     else if(bodyName === "Hamstrings"){
       const muscleExercise = userTypedMuscleJson.results[9].translations[0];
       const {name:exerciseName} = muscleExercise;
+      const {description:exerciseDescription} = muscleExercise;
+      setShowMuscleExercise(exerciseName);
+      setShowMuscleDescription(exerciseDescription)
       
     }
 
@@ -96,7 +99,7 @@ export default function ConnectToWorkOutApi() {
           Click Enter button below to connect to our own Api to build your own
           workouts
         </h3>
-      </section>
+     
       <section className="body-text">
         <p>Enter the body part that you want an exercise for?</p>
         <input
@@ -106,14 +109,17 @@ export default function ConnectToWorkOutApi() {
         ></input>
         <button onClick={fetchBodyWorkouts}>Enter</button>
 
-        <section>
+        <section className="exercises-main">
           {showMessage && connectedToApi && (
-            <h1 className="show-message"> {showMessage && <p>Connected To Fitness API ...</p>}</h1>
+            <h1 className="show-message"> Connected To Fitness API 😃</h1>
           )}
+          <section className="exercise-info">
           {selectedMuscle && <h3>PrimaryMuscle:{selectedMuscle}</h3>}
           {showMuscleExercise && <p> {showMuscleExercise}</p>}
           {showMuscleDescription && <p>{showMuscleDescription}</p>}
+          </section>
         </section>
+      </section>
       </section>
     </>
   );
