@@ -6,8 +6,9 @@ export default function ConnectToWorkOutApi() {
   const [connectedToApi, setConnectedToApi] = useState(false);
   const [selectedMuscle, setSelectedMuscle] = useState("");
   const [showMessage, setShowMessage] = useState(false);
-  const [showMuscleExercise,setShowMuscleExercise] = useState("");
-  const[showMuscleDescription,setShowMuscleDescription]=useState("");
+  const [showMuscleExercise, setShowMuscleExercise] = useState("");
+  const [showMuscleDescription, setShowMuscleDescription] = useState("");
+  const [highlight, setHighlight] = useState(false);
 
   const fetchBodyWorkouts = async () => {
     if (!bodyPartText.trim()) {
@@ -24,7 +25,6 @@ export default function ConnectToWorkOutApi() {
       name: body.name,
       name_en: body.name_en,
     }));
-    console.log(bodyParts)
     const matchedBodyPart = bodyParts.find(
       (muscle) => muscle.name_en === bodyPartText
     );
@@ -40,65 +40,50 @@ export default function ConnectToWorkOutApi() {
 
     const userTypedMuscleJson = await resp.json();
     setSelectedMuscle(bodyName);
-    if(bodyName === "Abs"){
-      const {name:absExerciseName} = userTypedMuscleJson.results[2].translations[1];
-      const {description:absExerciseDescription} = userTypedMuscleJson.results[2].translations[1];
+    if (bodyName === "Abs") {
+      const { name: absExerciseName } =
+        userTypedMuscleJson.results[2].translations[1];
+      const { description: absExerciseDescription } =
+        userTypedMuscleJson.results[2].translations[1];
       setShowMuscleExercise(absExerciseName);
-      setShowMuscleDescription(absExerciseDescription)
-    }
-    else if(bodyName === "Shoulders"){
+      setShowMuscleDescription(absExerciseDescription);
+    } else if (bodyName === "Shoulders") {
       const muscleExercise = userTypedMuscleJson.results[17].translations[2];
-      
-      const {name:exerciseName} = muscleExercise;
-      const{description:exerciseDescription} = muscleExercise;
+
+      const { name: exerciseName } = muscleExercise;
+      const { description: exerciseDescription } = muscleExercise;
       setShowMuscleExercise(exerciseName);
-      setShowMuscleDescription(exerciseDescription)
-      
-
-    }
-
-    else if(bodyName ==="Biceps"){
+      setShowMuscleDescription(exerciseDescription);
+    } else if (bodyName === "Biceps") {
       const muscleExercise = userTypedMuscleJson.results[0].translations[0];
-      const{name:exerciseName} = muscleExercise;
-      const{description:exerciseDescription} = muscleExercise;
+      const { name: exerciseName } = muscleExercise;
+      const { description: exerciseDescription } = muscleExercise;
       setShowMuscleExercise(exerciseName);
-      setShowMuscleDescription(exerciseDescription)
-
-    }
-
-    else if(bodyName === "Hamstrings"){
+      setShowMuscleDescription(exerciseDescription);
+    } else if (bodyName === "Hamstrings") {
       const muscleExercise = userTypedMuscleJson.results[9].translations[0];
-      const {name:exerciseName} = muscleExercise;
-      const {description:exerciseDescription} = muscleExercise;
+      const { name: exerciseName } = muscleExercise;
+      const { description: exerciseDescription } = muscleExercise;
       setShowMuscleExercise(exerciseName);
-      setShowMuscleDescription(exerciseDescription)
-      
-    }
-
-    else if(bodyName === "Calves"){
-      
+      setShowMuscleDescription(exerciseDescription);
+    } else if (bodyName === "Calves") {
       const muscleExercise = userTypedMuscleJson.results[1].translations[0];
-      const {name:exerciseName} = muscleExercise;
-      const {description:exerciseDescription} = muscleExercise;
+      const { name: exerciseName } = muscleExercise;
+      const { description: exerciseDescription } = muscleExercise;
       setShowMuscleExercise(exerciseName);
-      setShowMuscleDescription(exerciseDescription)
-    }
-
-    else{
-       const muscleExercise = userTypedMuscleJson.results[0].translations[0];
-      const{name:exerciseName} = muscleExercise;
-      const{description:exerciseDescription} = muscleExercise;
+      setShowMuscleDescription(exerciseDescription);
+    } else {
+      const muscleExercise = userTypedMuscleJson.results[0].translations[0];
+      const { name: exerciseName } = muscleExercise;
+      const { description: exerciseDescription } = muscleExercise;
       setShowMuscleExercise(exerciseName);
-      setShowMuscleDescription(exerciseDescription)
+      setShowMuscleDescription(exerciseDescription);
+    }
+  };
 
-    }
-    
-      
-    
-    }
-    
-    
-  
+  const handleFetchedDataStyling = () => {
+    setHighlight((prev) => !prev);
+  };
 
   return (
     <>
@@ -108,27 +93,36 @@ export default function ConnectToWorkOutApi() {
           Click Enter button below to connect to our own Api to build your own
           workouts
         </h3>
-     
-      <section className="body-text">
-        <p>Enter the body part that you want an exercise for?</p>
-        <input
-          type="text"
-          value={bodyPartText}
-          onChange={(e) => setBodyPartText(e.target.value)}
-        ></input>
-        <button onClick={fetchBodyWorkouts}>Enter</button>
 
-        <section className="exercises-main">
-          {showMessage && connectedToApi && (
-            <h1 className="show-message"> Connected To Fitness API 😃</h1>
-          )}
-          <section className="exercise-info">
-          {selectedMuscle && <h3>PrimaryMuscle:{selectedMuscle}</h3>}
-          {showMuscleExercise && <p> {showMuscleExercise}</p>}
-          {showMuscleDescription && <p>{showMuscleDescription}</p>}
+        <section className="body-text">
+          <p>Enter the body part that you want an exercise for?</p>
+          <input
+            type="text"
+            value={bodyPartText}
+            onChange={(e) => setBodyPartText(e.target.value)}
+          ></input>
+          <button
+            onClick={() => {
+              fetchBodyWorkouts();
+              handleFetchedDataStyling();
+            }}
+          >
+            Enter
+          </button>
+
+          <section className="exercises-main">
+            {showMessage && connectedToApi && (
+              <h1 className="show-message"> Connected To Fitness API 😃</h1>
+            )}
+            <section className="exercise-info">
+              <article className={highlight ? "highlight" : ""}>
+                {selectedMuscle && <h3>PrimaryMuscle:{selectedMuscle}</h3>}
+                {showMuscleExercise && <p> {showMuscleExercise}</p>}
+                {showMuscleDescription && <p>{showMuscleDescription}</p>}
+              </article>
+            </section>
           </section>
         </section>
-      </section>
       </section>
     </>
   );
