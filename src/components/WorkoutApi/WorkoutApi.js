@@ -7,6 +7,7 @@ export default function ConnectToWorkOutApi() {
   const [selectedMuscle, setSelectedMuscle] = useState("");
   const [showMessage, setShowMessage] = useState(false);
   const [showMuscleExercise,setShowMuscleExercise] = useState("");
+  const[showMuscleDescription,setShowMuscleDescription]=useState("");
 
   const fetchBodyWorkouts = async () => {
     if (!bodyPartText.trim()) {
@@ -39,8 +40,53 @@ export default function ConnectToWorkOutApi() {
 
     const userTypedMuscleJson = await resp.json();
     setSelectedMuscle(bodyName);
+    if(bodyName === "Abs"){
+      const {name:absExerciseName} = userTypedMuscleJson.results[2].translations[1];
+      const {description:absExerciseDescription} = userTypedMuscleJson.results[2].translations[1];
+      setShowMuscleExercise(absExerciseName);
+      setShowMuscleDescription(absExerciseDescription)
+    }
+    else if(bodyName === "Shoulders"){
+      const muscleExercise = userTypedMuscleJson.results[17].translations[2];
+      
+      const {name:exerciseName} = muscleExercise;
+      const{description:exerciseDescription} = muscleExercise;
+      setShowMuscleExercise(exerciseName);
+      setShowMuscleDescription(exerciseDescription)
+      
+
+    }
+
+    else if(bodyName ==="Biceps"){
+      const muscleExercise = userTypedMuscleJson.results[0].translations[0];
+      const{name:exerciseName} = muscleExercise;
+      const{description:exerciseDescription} = muscleExercise;
+      setShowMuscleExercise(exerciseName);
+      setShowMuscleDescription(exerciseDescription)
+
+    }
+
+    else if(bodyName === "Hamstrings"){
+      const muscleExercise = userTypedMuscleJson.results[9].translations[0];
+      const {name:exerciseName} = muscleExercise;
+      
+    }
+
+    else{
+       const muscleExercise = userTypedMuscleJson.results[0].translations[0];
+      const{name:exerciseName} = muscleExercise;
+      const{description:exerciseDescription} = muscleExercise;
+      setShowMuscleExercise(exerciseName);
+      setShowMuscleDescription(exerciseDescription)
+
+    }
     
-  };
+      
+    
+    }
+    
+    
+  
 
   return (
     <>
@@ -65,6 +111,8 @@ export default function ConnectToWorkOutApi() {
             <h1 className="show-message"> {showMessage && <p>Connected To Fitness API ...</p>}</h1>
           )}
           {selectedMuscle && <h3>PrimaryMuscle:{selectedMuscle}</h3>}
+          {showMuscleExercise && <p> {showMuscleExercise}</p>}
+          {showMuscleDescription && <p>{showMuscleDescription}</p>}
         </section>
       </section>
     </>
