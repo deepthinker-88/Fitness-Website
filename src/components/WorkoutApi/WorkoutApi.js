@@ -24,7 +24,7 @@ export default function ConnectToWorkOutApi() {
       name: body.name,
       name_en: body.name_en,
     }));
-  
+    console.log(bodyParts)
     const matchedBodyPart = bodyParts.find(
       (muscle) => muscle.name_en === bodyPartText
     );
@@ -73,6 +73,15 @@ export default function ConnectToWorkOutApi() {
       setShowMuscleExercise(exerciseName);
       setShowMuscleDescription(exerciseDescription)
       
+    }
+
+    else if(bodyName === "Calves"){
+      
+      const muscleExercise = userTypedMuscleJson.results[1].translations[0];
+      const {name:exerciseName} = muscleExercise;
+      const {description:exerciseDescription} = muscleExercise;
+      setShowMuscleExercise(exerciseName);
+      setShowMuscleDescription(exerciseDescription)
     }
 
     else{
