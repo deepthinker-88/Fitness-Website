@@ -1,8 +1,10 @@
+import "../WorkoutApi/WorkoutApi.css";
 import "./Recipes.css";
 import Footer from "../Footer/Footer";
 import React from "react";
 import { useState } from "react";
-import ViewRecipes from "../ViewRecipes/ViewRecipes";
+
+
 
 export default function Recipes() {
   const [recipes, setRecipes] = useState([]);
@@ -10,8 +12,11 @@ export default function Recipes() {
   const [showSavedRecipes, setShowSavedRecipes] = useState(false);
   const [savedRecipeItems, setSavedRecipeItems] = useState([]);
   const [showSavedList, setShowSavedList] = useState(false);
+  const [hasSearched, setHasSearched] = useState(false);
+  const[highlight,setHighlight] = useState(false);
 
   const handleFindRecipe = async () => {
+    setHasSearched(true);
     setRecipes([]);
     const url = fetch("https://www.themealdb.com/api/json/v1/1/random.php");
 
@@ -23,29 +28,36 @@ export default function Recipes() {
   };
 
   const handleSavedRecipes = async () => {
-    if(recipes.length > 0){
-    setShowSavedRecipes(true);
-    setSavedRecipeItems((prev) => [...prev, ...recipes]);
-    setShowSavedRecipes((prev) => !prev);
-    setRecipes([]);
+    if (recipes.length > 0) {
+      setShowSavedRecipes(true);
+      setSavedRecipeItems((prev) => [...prev, ...recipes]);
+      setShowSavedRecipes((prev) => !prev);
+      setRecipes([]);
     }
   };
+
+  const handleFetchedDataStyling = () => {
+    setHighlight(true);
+
+  }
 
   return (
     <>
       <section className="recipe-info">
         <h2>Let's start finding some great recipes for you</h2>
         <p>Recipe Finder</p>
-        <button onClick={handleFindRecipe}>
+        <button onClick={() =>{
+          handleFindRecipe()
+          handleFetchedDataStyling()}}>
           Click here to generate some Recipes
         </button>
 
         {recipes && recipes.length > 0 ? (
           <section className="recipe-instructions">
+            <article className={highlight ? "highlight":""}>
             {recipes.map((recipe) => {
               return (
                 <div key={recipe.idMeal} class="food-list">
-                  
                   <img
                     src={recipe.strMealThumb}
                     alt="food-image"
@@ -62,11 +74,11 @@ export default function Recipes() {
                 </div>
               );
             })}
+            </article>
           </section>
         ) : (
-          <p>No recipes found</p>
+          hasSearched && <p>No recipes found</p>
         )}
-
 
         {showSaveButton &&(
           <button onClick={handleSavedRecipes}>Save Recipe</button>
@@ -82,29 +94,28 @@ export default function Recipes() {
           </button>
         )}
 
-        {showSavedList && (
-          <>
-            {savedRecipeItems.map((recipe) => (
-              <div key={recipe.idMeal} className="food-list saved-recipes">
-                
-                <img
-                  src={recipe.strMealThumb}
-                  alt="food-image"
-                  width="150"
-                  class="responsive"
-                ></img>
-                <h1>{recipe.strMeal}</h1>
-                <p>{recipe.strInstructions}</p>
-                <p className="youtube-link">
-                  {" "}
-                  YouTube Link :{" "}
-                  <a href={recipe.strYoutube}>Video Recipe Link</a>
-                </p>
-              </div>
-            ))}
-          </>
-        )}
-      </>
-    
+      {showSavedList && (
+        <>
+          {savedRecipeItems.map((recipe) => (
+            <div key={recipe.idMeal} className="food-list saved-recipes" >
+             <img
+                src={recipe.strMealThumb}
+                alt="food-image"
+                width="150"
+                class="responsive"
+              ></img>
+              <h1>{recipe.strMeal}</h1>
+              <p>{recipe.strInstructions}</p>
+              <p className="youtube-link">
+                {" "}
+                YouTube Link : <a href={recipe.strYoutube}>Video Recipe Link</a>
+              </p>
+            
+            </div>
+          ))}
+        </>
+      )}
+    </>
   );
 }
+
