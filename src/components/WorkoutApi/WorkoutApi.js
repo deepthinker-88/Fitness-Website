@@ -82,7 +82,10 @@ export default function ConnectToWorkOutApi() {
   };
 
   const handleFetchedDataStyling = () => {
-    setHighlight((prev) => !prev);
+    if (bodyPartText) {
+      setHighlight(true);
+      
+    }
   };
 
   return (
@@ -90,8 +93,8 @@ export default function ConnectToWorkOutApi() {
       <section className="workout-api-text">
         <h2>Not happy with our stock workouts???</h2>
         <h3>
-          Click Enter button below to connect to our own Api to build your own
-          workouts
+          Click Enter button below to connect to Workout Api to view some of our
+          most popular workouts
         </h3>
 
         <section className="body-text">
@@ -114,13 +117,15 @@ export default function ConnectToWorkOutApi() {
             {showMessage && connectedToApi && (
               <h1 className="show-message"> Connected To Fitness API 😃</h1>
             )}
-            <section className="exercise-info">
-              <article className={highlight ? "highlight" : ""}>
-                {selectedMuscle && <h3>PrimaryMuscle:{selectedMuscle}</h3>}
-                {showMuscleExercise && <p> {showMuscleExercise}</p>}
-                {showMuscleDescription && <p>{showMuscleDescription}</p>}
-              </article>
-            </section>
+            {highlight && (
+              <section className="exercise-info">
+                <article className={highlight ? "highlight" : ""}>
+                  {selectedMuscle && <h3>PrimaryMuscle:{selectedMuscle}</h3>}
+                  {showMuscleExercise && <p> {showMuscleExercise}</p>}
+                  {showMuscleDescription && <p>{showMuscleDescription}</p>}
+                </article>
+              </section>
+            )}
           </section>
         </section>
       </section>
