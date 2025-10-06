@@ -195,6 +195,9 @@ export default function ConnectToWorkOutApi() {
               <button onClick={handleSavedWorkouts}>Save Workout</button>
             )}
             <p>{saveWorkoutMessage}</p>
+            {viewSavedWorkoutButton && (
+              <button>View Saved Workouts</button>
+            )}
 
             <section></section>
           </section>
