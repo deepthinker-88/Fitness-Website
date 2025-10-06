@@ -9,6 +9,11 @@ export default function ConnectToWorkOutApi() {
   const [showMuscleExercise, setShowMuscleExercise] = useState("");
   const [showMuscleDescription, setShowMuscleDescription] = useState("");
   const [highlight, setHighlight] = useState(false);
+  const [showSaveButton, setShowSaveButton] = useState(false);
+  const [saveWorkout, setSaveWorkout] = useState([]);
+  const [viewSavedWorkouts, setViewSavedWorkouts] = useState([]);
+  const [saveWorkoutMessage, setSaveWorkoutMessage] = useState("");
+  const [viewSavedWorkoutButton, setViewSavedWorkoutButton] = useState(false);
 
   const fetchBodyWorkouts = async () => {
     if (!bodyPartText.trim()) {
@@ -25,6 +30,7 @@ export default function ConnectToWorkOutApi() {
       name: body.name,
       name_en: body.name_en,
     }));
+    console.log(bodyParts);
     const matchedBodyPart = bodyParts.find(
       (muscle) => muscle.name_en === bodyPartText
     );
@@ -39,7 +45,9 @@ export default function ConnectToWorkOutApi() {
     setTimeout(() => setShowMessage(false), 5000);
 
     const userTypedMuscleJson = await resp.json();
+    console.log(userTypedMuscleJson);
     setSelectedMuscle(bodyName);
+    setShowSaveButton(true);
     if (bodyName === "Abs") {
       const { name: absExerciseName } =
         userTypedMuscleJson.results[2].translations[1];
@@ -72,6 +80,41 @@ export default function ConnectToWorkOutApi() {
       const { description: exerciseDescription } = muscleExercise;
       setShowMuscleExercise(exerciseName);
       setShowMuscleDescription(exerciseDescription);
+    } else if (bodyName === "Lats") {
+      const muscleExercise = userTypedMuscleJson.results[13].translations[2];
+      const { name: exerciseName } = muscleExercise;
+      setShowMuscleExercise(exerciseName);
+      setShowMuscleDescription(
+        <p>
+          On an assisted pull-up machine, set the weight so it offsets part of
+          your bodyweight, then grip the handles (wide for lats, close for arms
+          and lats). Place your knees on the pad, start with arms fully
+          extended, chest lifted, and core tight. Pull yourself up by driving
+          elbows down and squeezing your back until your chin nears the bar,
+          then lower slowly with control.
+        </p>
+      );
+    } else if (bodyName === "Glutes") {
+      const muscleExercise = userTypedMuscleJson.results[12].translations[1];
+      const { name: exerciseName } = muscleExercise;
+      const { description: exerciseDescription } = muscleExercise;
+      setShowMuscleExercise(exerciseName);
+      setShowMuscleDescription(exerciseDescription);
+    } else if (bodyName === "Quads") {
+      const muscleExercise = userTypedMuscleJson.results[1].translations[2];
+      console.log(muscleExercise);
+      const { name: exerciseName } = muscleExercise;
+      setShowMuscleExercise(exerciseName);
+      setShowMuscleDescription(
+        <p>
+          Sit on the machine with your back against the pad and one leg hooked
+          under the roller. Keep your other foot flat on the floor for
+          stability. Extend your working leg upward until it’s straight,
+          focusing on contracting your quadriceps, then lower back down slowly
+          with control. This isolates each leg to build quad strength evenly and
+          improve balance
+        </p>
+      );
     } else {
       const muscleExercise = userTypedMuscleJson.results[0].translations[0];
       const { name: exerciseName } = muscleExercise;
@@ -84,8 +127,30 @@ export default function ConnectToWorkOutApi() {
   const handleFetchedDataStyling = () => {
     if (bodyPartText) {
       setHighlight(true);
-      
     }
+  };
+
+  const handleViewedSaveWorkouts = () => {
+    setViewSavedWorkoutButton();
+    setSaveWorkout((prev) => [
+      ...prev,
+      ...showMuscleExercise,
+      ...showMuscleDescription,
+    ]);
+  };
+
+  const handleSavedWorkouts = () => {
+    console.log("Clicked");
+    setTimeout(() => {
+      setShowSaveButton(false);
+      setSaveWorkoutMessage("Workout Saved");
+    }, 2000);
+    setTimeout(() => {
+      setShowSaveButton(true);
+      setSaveWorkoutMessage(false);
+      setShowSaveButton(true);
+      setViewSavedWorkoutButton("View Saved Workouts");
+    }, 4000);
   };
 
   return (
@@ -120,12 +185,18 @@ export default function ConnectToWorkOutApi() {
             {highlight && (
               <section className="exercise-info">
                 <article className={highlight ? "highlight" : ""}>
-                  {selectedMuscle && <h3>PrimaryMuscle:{selectedMuscle}</h3>}
+                  {selectedMuscle && <h3>PrimaryMuscle: {selectedMuscle}</h3>}
                   {showMuscleExercise && <p> {showMuscleExercise}</p>}
                   {showMuscleDescription && <p>{showMuscleDescription}</p>}
                 </article>
               </section>
             )}
+            {showSaveButton && (
+              <button onClick={handleSavedWorkouts}>Save Workout</button>
+            )}
+            <p>{saveWorkoutMessage}</p>
+
+            <section></section>
           </section>
         </section>
       </section>
