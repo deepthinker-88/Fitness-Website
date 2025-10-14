@@ -14,6 +14,18 @@ export default function ConnectToWorkOutApi() {
   const [viewSavedWorkouts, setViewSavedWorkouts] = useState([]);
   const [saveWorkoutMessage, setSaveWorkoutMessage] = useState("");
   const [viewSavedWorkoutButton, setViewSavedWorkoutButton] = useState(false);
+  const availableBodyParts = [
+    "Shoulders",
+    "Biceps",
+    "Hamstrings",
+    "Calves",
+    "Glutes",
+    "Lats",
+    "Chest",
+    "Quads",
+    "Abs",
+    "Triceps",
+  ];
 
   const fetchBodyWorkouts = async () => {
     if (!bodyPartText.trim()) {
@@ -30,7 +42,7 @@ export default function ConnectToWorkOutApi() {
       name: body.name,
       name_en: body.name_en,
     }));
-    console.log(bodyParts);
+
     const matchedBodyPart = bodyParts.find(
       (muscle) => muscle.name_en === bodyPartText
     );
@@ -131,11 +143,11 @@ export default function ConnectToWorkOutApi() {
   };
 
   const handleViewedSaveWorkouts = () => {
-    setViewSavedWorkoutButton();
-    setSaveWorkout((prev) => [
+    setViewSavedWorkouts((prev) => [
       ...prev,
-      ...showMuscleExercise,
-      ...showMuscleDescription,
+      selectedMuscle,
+      showMuscleExercise,
+      showMuscleDescription,
     ]);
   };
 
@@ -164,6 +176,18 @@ export default function ConnectToWorkOutApi() {
 
         <section className="body-text">
           <p>Enter the body part that you want an exercise for?</p>
+
+          <p>Available options are: </p>
+          {availableBodyParts.map((value, index) => {
+            return (
+              <ul>
+                <li className="rendered-body-list" key={index}>
+                  {value}
+                </li>
+              </ul>
+            );
+          })}
+
           <input
             type="text"
             value={bodyPartText}
@@ -196,7 +220,20 @@ export default function ConnectToWorkOutApi() {
             )}
             <p>{saveWorkoutMessage}</p>
             {viewSavedWorkoutButton && (
-              <button>View Saved Workouts</button>
+              <>
+                <button onClick={handleViewedSaveWorkouts}>
+                  View Saved Workouts
+                </button>
+                <section className="mapped-list">
+                  {viewSavedWorkouts.map((value, index) => {
+                    return (
+                      <ul className="workout-items">
+                        <li key={index}>{value}</li>
+                      </ul>
+                    );
+                  })}
+                </section>
+              </>
             )}
 
             <section></section>
