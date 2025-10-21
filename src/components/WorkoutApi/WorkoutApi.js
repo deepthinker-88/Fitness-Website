@@ -210,7 +210,7 @@ export default function ConnectToWorkOutApi() {
               handleFetchedDataStyling();
             }}
           >
-            Enter
+            Search
           </button>
 
           <section className="exercises-main">
