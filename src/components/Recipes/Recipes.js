@@ -4,8 +4,6 @@ import Footer from "../Footer/Footer";
 import React from "react";
 import { useState } from "react";
 
-
-
 export default function Recipes() {
   const [recipes, setRecipes] = useState([]);
   const [showSaveButton, setShowSaveButton] = useState(false);
@@ -13,7 +11,9 @@ export default function Recipes() {
   const [savedRecipeItems, setSavedRecipeItems] = useState([]);
   const [showSavedList, setShowSavedList] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
-  const[highlight,setHighlight] = useState(false);
+  const [highlight, setHighlight] = useState(false);
+  const [showRecipeMessage, setShowRecipeMessage] = useState("");
+  const [showSavedRecipeButton, setShowSavedRecipeButton] = useState(true);
 
   const handleFindRecipe = async () => {
     setHasSearched(true);
@@ -38,67 +38,78 @@ export default function Recipes() {
 
   const handleFetchedDataStyling = () => {
     setHighlight(true);
-
-  }
+  };
+  const handleShoWSavedRecipeMessage = () => {
+    setShowSavedRecipeButton(false);
+    setTimeout(() => {
+      setShowRecipeMessage("Recipe Saved");
+      setTimeout(() => {
+        setShowRecipeMessage("");
+      }, 2000);
+    });
+  };
 
   return (
     <>
       <section className="recipe-info">
         <h2>Let's start finding some great recipes for you</h2>
         <p>Recipe Finder</p>
-        <button onClick={() =>{
-          handleFindRecipe()
-          handleFetchedDataStyling()}}>
+        <button
+          onClick={() => {
+            handleFindRecipe();
+            handleFetchedDataStyling();
+          }}
+        >
           Click here to generate some Recipes
         </button>
 
         {recipes && recipes.length > 0 ? (
           <section className="recipe-instructions">
-            <article className={highlight ? "highlight":""}>
-            {recipes.map((recipe) => {
-              return (
-                <div key={recipe.idMeal} class="food-list">
-                  <img
-                    src={recipe.strMealThumb}
-                    alt="food-image"
-                    width="150"
-                    class="responsive"
-                  ></img>
-                  <h1>{recipe.strMeal}</h1>
-                  <p>{recipe.strInstructions}</p>
-                  <p className="youtube-link">
-                    {" "}
-                    YouTube Link :{" "}
-                    <a href={recipe.strYoutube}>Video Recipe Link</a>
-                  </p>
-                </div>
-              );
-            })}
+            <article className={highlight ? "highlight" : ""}>
+              {recipes.map((recipe) => {
+                return (
+                  <div key={recipe.idMeal} class="food-list">
+                    <img
+                      src={recipe.strMealThumb}
+                      alt="food-image"
+                      width="150"
+                      class="responsive"
+                    ></img>
+                    <h1>{recipe.strMeal}</h1>
+                    <p>{recipe.strInstructions}</p>
+                    <p className="youtube-link">
+                      {" "}
+                      YouTube Link :{" "}
+                      <a href={recipe.strYoutube}>Video Recipe Link</a>
+                    </p>
+                  </div>
+                );
+              })}
             </article>
           </section>
         ) : (
           hasSearched && <p>No recipes found</p>
         )}
 
-        {showSaveButton &&(
+        {showSaveButton && (
           <button onClick={handleSavedRecipes}>Save Recipe</button>
         )}
       </section>
-      
-        {savedRecipeItems.length > 0 && (
-          <button
-            onClick={() => setShowSavedList((prev) => !prev)}
-            className="saved-recipes"
-          >
-            {showSavedList ? "Hide Saved Recipes" : "Show Saved Recipes"}
-          </button>
-        )}
+
+      {savedRecipeItems.length > 0 && (
+        <button
+          onClick={() => setShowSavedList((prev) => !prev)}
+          className="saved-recipes"
+        >
+          {showSavedList ? "Hide Saved Recipes" : "Show Saved Recipes"}
+        </button>
+      )}
 
       {showSavedList && (
         <>
           {savedRecipeItems.map((recipe) => (
-            <div key={recipe.idMeal} className="food-list saved-recipes" >
-             <img
+            <div key={recipe.idMeal} className="food-list saved-recipes">
+              <img
                 src={recipe.strMealThumb}
                 alt="food-image"
                 width="150"
@@ -110,7 +121,12 @@ export default function Recipes() {
                 {" "}
                 YouTube Link : <a href={recipe.strYoutube}>Video Recipe Link</a>
               </p>
-            
+              {showSavedRecipeButton && (
+                <button onClick={handleShoWSavedRecipeMessage}>
+                  Add Recipe to Custom Workouts
+                </button>
+              )}
+              {showRecipeMessage && <p>{showRecipeMessage}</p>}
             </div>
           ))}
         </>
@@ -118,4 +134,3 @@ export default function Recipes() {
     </>
   );
 }
-
