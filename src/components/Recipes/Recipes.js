@@ -14,7 +14,7 @@ export default function Recipes() {
   const [highlight, setHighlight] = useState(false);
   const [showRecipeMessage, setShowRecipeMessage] = useState("");
   const [showSavedRecipeButton, setShowSavedRecipeButton] = useState(true);
-
+  const [deleteRecipe, setDeleteRecipe] = useState(true);
   const handleFindRecipe = async () => {
     setHasSearched(true);
     setRecipes([]);
@@ -47,6 +47,16 @@ export default function Recipes() {
         setShowRecipeMessage("");
       }, 2000);
     });
+  };
+
+  const handleDeleteRecipe = (savedRecipe) => {
+    const deleteRecipe = savedRecipeItems.filter(
+      (recipe) => recipe !== savedRecipe
+    );
+    setSavedRecipeItems(deleteRecipe);
+    if(deleteRecipe.length === 0){
+      setShowSaveButton(false)
+    }
   };
 
   return (
@@ -122,11 +132,20 @@ export default function Recipes() {
                 YouTube Link : <a href={recipe.strYoutube}>Video Recipe Link</a>
               </p>
               {showSavedRecipeButton && (
-                <button onClick={handleShoWSavedRecipeMessage}>
+                <button
+                  onClick={() => {
+                    handleShoWSavedRecipeMessage(recipe);
+                  }}
+                >
                   Add Recipe to Custom Workouts
                 </button>
               )}
               {showRecipeMessage && <p>{showRecipeMessage}</p>}
+              <section>
+                <button onClick={() => handleDeleteRecipe(recipe)}>
+                  Delete Recipe
+                </button>
+              </section>
             </div>
           ))}
         </>
