@@ -12,9 +12,9 @@ export default function Recipes() {
   const [showSavedList, setShowSavedList] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
   const [highlight, setHighlight] = useState(false);
-  const [showRecipeMessage, setShowRecipeMessage] = useState("");
+  const [showRecipeMessage, setShowRecipeMessage] = useState(false);
   const [showSavedRecipeButton, setShowSavedRecipeButton] = useState(true);
-  const [deleteRecipe, setDeleteRecipe] = useState(true);
+
   const handleFindRecipe = async () => {
     setHasSearched(true);
     setRecipes([]);
@@ -39,23 +39,36 @@ export default function Recipes() {
   const handleFetchedDataStyling = () => {
     setHighlight(true);
   };
-  const handleShoWSavedRecipeMessage = () => {
-    setShowSavedRecipeButton(false);
-    setTimeout(() => {
-      setShowRecipeMessage("Recipe Saved");
-      setTimeout(() => {
-        setShowRecipeMessage("");
-      }, 2000);
-    });
-  };
+  const handleShoWSavedRecipeMessage = (recipeItem) => {
+    const exactFilteredRecipes = savedRecipeItems.filter(
+      (filterRecipe) => filterRecipe.idMeal === recipeItem.idMeal
+    );
+    const differentFilteredRecipes = savedRecipeItems.filter(
+      (filterRecipe) => filterRecipe.idMeal !== recipeItem.idMeal
+    );
 
+    if (exactFilteredRecipes) {
+      setTimeout(() => {
+        setTimeout(() => {
+          setSavedRecipeItems(exactFilteredRecipes);
+        }, 2000);
+      });
+    }
+    if (differentFilteredRecipes) {
+      setTimeout(() => {
+        setTimeout(() => {
+          setSavedRecipeItems(differentFilteredRecipes);
+        }, 2000);
+      });
+    }
+  };
   const handleDeleteRecipe = (savedRecipe) => {
     const deleteRecipe = savedRecipeItems.filter(
       (recipe) => recipe !== savedRecipe
     );
     setSavedRecipeItems(deleteRecipe);
-    if(deleteRecipe.length === 0){
-      setShowSaveButton(false)
+    if (deleteRecipe.length === 0) {
+      setShowSaveButton(false);
     }
   };
 
