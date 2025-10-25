@@ -14,6 +14,7 @@ export default function Recipes() {
   const [highlight, setHighlight] = useState(false);
   const [showRecipeMessage, setShowRecipeMessage] = useState(false);
   const [showSavedRecipeButton, setShowSavedRecipeButton] = useState(true);
+  const [showCustomSavedRecipes, setShowCustomSavedRecipes] = useState([]);
 
   const handleFindRecipe = async () => {
     setHasSearched(true);
@@ -40,28 +41,16 @@ export default function Recipes() {
     setHighlight(true);
   };
   const handleShoWSavedRecipeMessage = (recipeItem) => {
-    const exactFilteredRecipes = savedRecipeItems.filter(
-      (filterRecipe) => filterRecipe.idMeal === recipeItem.idMeal
+    const updatedItems = savedRecipeItems.filter(
+      (recipe) => recipe.idMeal !== recipeItem.idMeal
     );
-    const differentFilteredRecipes = savedRecipeItems.filter(
-      (filterRecipe) => filterRecipe.idMeal !== recipeItem.idMeal
-    );
-
-    if (exactFilteredRecipes) {
-      setTimeout(() => {
-        setTimeout(() => {
-          setSavedRecipeItems(exactFilteredRecipes);
-        }, 2000);
-      });
-    }
-    if (differentFilteredRecipes) {
-      setTimeout(() => {
-        setTimeout(() => {
-          setSavedRecipeItems(differentFilteredRecipes);
-        }, 2000);
-      });
+    console.log(updatedItems);
+    if (updatedItems.length === 0) {
+      setSavedRecipeItems(updatedItems);
+      setShowSaveButton(false);
     }
   };
+
   const handleDeleteRecipe = (savedRecipe) => {
     const deleteRecipe = savedRecipeItems.filter(
       (recipe) => recipe !== savedRecipe
