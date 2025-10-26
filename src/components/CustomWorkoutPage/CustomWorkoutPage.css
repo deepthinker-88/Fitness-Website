@@ -1,0 +1,10 @@
+.custom-workout-info{
+    display:flex;
+    flex-direction: column;
+}
+
+.custom-workout-title{
+    text-align: center;
+    text-decoration: underline;
+    font-family:"LuckiestGuy"
+}
