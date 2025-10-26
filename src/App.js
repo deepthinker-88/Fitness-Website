@@ -64,7 +64,7 @@ function App() {
               }
             />
             <Route
-              path="user-profile/custom-workout"
+              path="/user-profile/custom-workout"
               element={<ShowCustomWorkouts />}
             />
           </Routes>
