@@ -155,13 +155,11 @@ export default function ConnectToWorkOutApi() {
 
   const handleSavedWorkouts = () => {
     setTimeout(() => {
-      setShowSaveButton(false);
       setSaveWorkoutMessage("Workout Saved");
+      setShowSaveButton(false);
     }, 2000);
     setTimeout(() => {
-      setShowSaveButton(true);
       setSaveWorkoutMessage(false);
-      setShowSaveButton(true);
       setViewSavedWorkoutButton("View Saved Workouts");
     }, 4000);
   };
@@ -170,12 +168,13 @@ export default function ConnectToWorkOutApi() {
     const updatedWorkouts = viewSavedWorkouts.filter(
       (workout) => workout !== selectedMuscle
     );
+
     setViewSavedWorkouts(updatedWorkouts);
+
     if (updatedWorkouts.length === 0) {
       setViewSavedWorkoutButton(false);
     }
   };
-
   return (
     <>
       <section className="workout-api-text">
@@ -238,14 +237,19 @@ export default function ConnectToWorkOutApi() {
                 <section className="mapped-list">
                   {viewSavedWorkouts.map((workout, index) => {
                     return (
-                      <ul key={index} className="workout-items">
-                        <li>{workout}</li>
-                        <button onClick={() => handleDeleteWorkout(workout)}>
-                          Delete
-                        </button>
-                      </ul>
+                      <>
+                        <ul key={index} className="workout-items">
+                          <li>{workout}</li>
+                          <button onClick={() => handleDeleteWorkout(workout)}>
+                            Delete
+                          </button>
+                        </ul>
+                      </>
                     );
                   })}
+                  <button className="add-to-custom-workout" onClick={() => {}}>
+                    Add To Custom Workouts
+                  </button>
                 </section>
               </>
             )}
