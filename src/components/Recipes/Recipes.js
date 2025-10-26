@@ -14,7 +14,8 @@ export default function Recipes() {
   const [highlight, setHighlight] = useState(false);
   const [showRecipeMessage, setShowRecipeMessage] = useState(false);
   const [showSavedRecipeButton, setShowSavedRecipeButton] = useState(true);
-  const [showCustomSavedRecipes, setShowCustomSavedRecipes] = useState([]);
+  const [showCustomSavedRecipesButton, setShowCustomSavedRecipesButton] = useState(false);
+  
 
   const handleFindRecipe = async () => {
     setHasSearched(true);
@@ -44,11 +45,14 @@ export default function Recipes() {
     const updatedItems = savedRecipeItems.filter(
       (recipe) => recipe.idMeal !== recipeItem.idMeal
     );
-    console.log(updatedItems);
+    setSavedRecipeItems(updatedItems)
+    setShowSaveButton(false)
+
     if (updatedItems.length === 0) {
-      setSavedRecipeItems(updatedItems);
-      setShowSaveButton(false);
-    }
+    setShowSaveButton(false);
+    setShowCustomSavedRecipesButton(prev => !prev)
+  }
+  
   };
 
   const handleDeleteRecipe = (savedRecipe) => {
@@ -59,6 +63,7 @@ export default function Recipes() {
     if (deleteRecipe.length === 0) {
       setShowSaveButton(false);
     }
+   
   };
 
   return (
@@ -150,6 +155,9 @@ export default function Recipes() {
               </section>
             </div>
           ))}
+          {showCustomSavedRecipesButton && (
+            <button className="custom-recipe-button">Click Here To View Custom Workouts</button>
+          )}
         </>
       )}
     </>
