@@ -69,12 +69,11 @@ export default function ConnectToWorkOutApi() {
         setShowMuscleExercise(absExerciseName);
         setShowMuscleDescription(absExerciseDescription);
       } else if (bodyName === "Shoulders") {
-        const muscleExercise = userTypedMuscleJson.results[17].translations[2];
-
-        const { name: exerciseName } = muscleExercise;
-        const { description: exerciseDescription } = muscleExercise;
-        setShowMuscleExercise(exerciseName);
-        setShowMuscleDescription(exerciseDescription);
+        const {name:muscleExercise} = userTypedMuscleJson.results[18].translations[2];
+        const {description:exerciseDescription} = userTypedMuscleJson.results[18].translations[2]
+        setShowMuscleExercise(muscleExercise)
+        setShowMuscleDescription(exerciseDescription)
+       
       } else if (bodyName === "Biceps") {
         const muscleExercise = userTypedMuscleJson.results[0].translations[0];
         const { name: exerciseName } = muscleExercise;
