@@ -10,21 +10,25 @@ import UserProfile from "./components/UserProfilePage/UserProfilePage";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import ToShowNavbar from "./components/ShowNavBar/ShowNavBar";
-import Home from "./components/Home/Home"
+import Home from "./components/Home/Home";
+import ShowCustomWorkouts from "./components/CustomWorkoutPage/CustomWorkoutPage";
 
 function App() {
   return (
     <div>
       <nav>
         <Router>
-          <ToShowNavbar>
-            <NavBar />
-          </ToShowNavbar>
-          
+          <ToShowNavbar>{<NavBar />}</ToShowNavbar>
+
           <Routes>
             <Route
               path="/"
-              element={<Home />}
+              element={
+                <>
+                  <Home />
+                  <Footer />
+                </>
+              }
             />
 
             <Route path="/sign-up" element={<Signup />} />
@@ -59,11 +63,12 @@ function App() {
                 />
               }
             />
+            <Route
+              path="user-profile/custom-workout"
+              element={<ShowCustomWorkouts />}
+            />
           </Routes>
         </Router>
-        <div>
-          <Footer className="footer-class" />
-        </div>
       </nav>
     </div>
   );
