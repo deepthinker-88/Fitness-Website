@@ -69,11 +69,12 @@ export default function ConnectToWorkOutApi() {
         setShowMuscleExercise(absExerciseName);
         setShowMuscleDescription(absExerciseDescription);
       } else if (bodyName === "Shoulders") {
-        const {name:muscleExercise} = userTypedMuscleJson.results[18].translations[2];
-        const {description:exerciseDescription} = userTypedMuscleJson.results[18].translations[2]
-        setShowMuscleExercise(muscleExercise)
-        setShowMuscleDescription(exerciseDescription)
-       
+        const { name: muscleExercise } =
+          userTypedMuscleJson.results[18].translations[2];
+        const { description: exerciseDescription } =
+          userTypedMuscleJson.results[18].translations[2];
+        setShowMuscleExercise(muscleExercise);
+        setShowMuscleDescription(exerciseDescription);
       } else if (bodyName === "Biceps") {
         const muscleExercise = userTypedMuscleJson.results[0].translations[0];
         const { name: exerciseName } = muscleExercise;
@@ -144,12 +145,19 @@ export default function ConnectToWorkOutApi() {
   };
 
   const handleViewedSaveWorkouts = () => {
-    setViewSavedWorkouts((prev) => [
-      ...prev,
-      selectedMuscle,
-      showMuscleExercise,
-      showMuscleDescription,
-    ]);
+    if (
+      !viewSavedWorkouts.includes(
+        selectedMuscle,
+        showMuscleExercise,
+        showMuscleDescription
+      )
+    )
+      setViewSavedWorkouts((prev) => [
+        ...prev,
+        selectedMuscle,
+        showMuscleExercise,
+        showMuscleDescription,
+      ]);
   };
 
   const handleSavedWorkouts = () => {
