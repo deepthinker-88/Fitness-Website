@@ -3,6 +3,7 @@ import "./Recipes.css";
 import Footer from "../Footer/Footer";
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Recipes() {
   const [recipes, setRecipes] = useState([]);
@@ -15,7 +16,7 @@ export default function Recipes() {
   const [showRecipeMessage, setShowRecipeMessage] = useState(false);
   const [showSavedRecipeButton, setShowSavedRecipeButton] = useState(true);
   const [showCustomSavedRecipesButton, setShowCustomSavedRecipesButton] = useState(false);
-  
+  const navigate = useNavigate();
 
   const handleFindRecipe = async () => {
     setHasSearched(true);
@@ -35,6 +36,7 @@ export default function Recipes() {
       setSavedRecipeItems((prev) => [...prev, ...recipes]);
       setShowSavedRecipes((prev) => !prev);
       setRecipes([]);
+      setShowSaveButton(false)
     }
   };
 
@@ -45,14 +47,13 @@ export default function Recipes() {
     const updatedItems = savedRecipeItems.filter(
       (recipe) => recipe.idMeal !== recipeItem.idMeal
     );
-    setSavedRecipeItems(updatedItems)
-    setShowSaveButton(false)
+    setSavedRecipeItems(updatedItems);
+    setShowSaveButton(false);
 
     if (updatedItems.length === 0) {
-    setShowSaveButton(false);
-    setShowCustomSavedRecipesButton(prev => !prev)
-  }
-  
+      setShowSaveButton(false);
+      setShowCustomSavedRecipesButton((prev) => !prev);
+    }
   };
 
   const handleDeleteRecipe = (savedRecipe) => {
@@ -63,7 +64,6 @@ export default function Recipes() {
     if (deleteRecipe.length === 0) {
       setShowSaveButton(false);
     }
-   
   };
 
   return (
@@ -156,7 +156,14 @@ export default function Recipes() {
             </div>
           ))}
           {showCustomSavedRecipesButton && (
-            <button className="custom-recipe-button">Click Here To View Custom Workouts</button>
+            <button
+              onClick={() => {
+                navigate("/user-profile/custom-workout");
+              }}
+              className="custom-recipe-button"
+            >
+              Click Here To View Custom Workouts
+            </button>
           )}
         </>
       )}
