@@ -1,6 +1,8 @@
 .custom-workout-info{
+    min-height: 100vh;
     display:flex;
     flex-direction: column;
+    background-color: var(--page-background-color)
 }
 
 .custom-workout-title{
