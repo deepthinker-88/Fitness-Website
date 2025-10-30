@@ -18,13 +18,21 @@
   align-self: center;
 }
 
-button.saved-recipes {
+button.saved-recipes,
+button.custom-recipe-button{
   font-family: "LuckiestGuy";
   padding: 0.5rem;
   text-align: center;
   justify-content: center;
   align-self: center;
-  width:fit-content
+  width:fit-content;
+ 
+}
+
+button.custom-workout-button{
+  display: flex;
+  flex-direction: column;
+  
 }
 
 .recipe-instructions {
@@ -36,7 +44,7 @@ button.saved-recipes {
 }
 
 .recipe-info {
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -123,14 +131,13 @@ button{
   }
 
   .recipe-info{
-    min-height: 50vh;
     overflow-y: hidden;
   }
 }
 
 @media (min-width: 70rem) and (max-width: 90rem) {
   .recipe-info {
-    min-height: 100vh;
+    min-height: auto;
     overflow: hidden;
   }
 
@@ -144,12 +151,12 @@ button{
     min-height: 100vh;
   }
   .recipe-info {
-    min-height: 100vh;
+    min-height: auto; 
     background-color: var(--page-background-color);
     width: 100%;
   }
   .recipe-instructions {
-    min-height: 100vh;
+    min-height:auto;
     background-color: var(--page-background-color);
     width: 70%;
   }
