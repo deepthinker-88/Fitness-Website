@@ -164,11 +164,11 @@ export default function ConnectToWorkOutApi() {
     setTimeout(() => {
       setSaveWorkoutMessage("Workout Saved");
       setShowSaveButton(false);
-    }, 2000);
+    },0);
     setTimeout(() => {
       setSaveWorkoutMessage(false);
       setViewSavedWorkoutButton("View Saved Workouts");
-    }, 4000);
+    },2000);
   };
 
   const handleDeleteWorkout = (selectedMuscle) => {
