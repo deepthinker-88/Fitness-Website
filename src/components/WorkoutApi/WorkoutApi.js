@@ -283,7 +283,7 @@ export default function ConnectToWorkOutApi() {
                     </button>
                   )}
                   {showCustomWorkoutButton && (
-                    <button
+                    <button className = "show-custom-workout"
                       onClick={() => navigate("/user-profile/custom-workout")}
                     >
                       Show custom Workouts
