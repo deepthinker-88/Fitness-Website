@@ -13,7 +13,7 @@ export default function ConnectToWorkOutApi() {
   const [viewSavedWorkouts, setViewSavedWorkouts] = useState([]);
   const [saveWorkoutMessage, setSaveWorkoutMessage] = useState("");
   const [viewSavedWorkoutButton, setViewSavedWorkoutButton] = useState(false);
-  const [showSaveCustomWorkoutButton, setShowSaveCustomWorkoutButton] = useState(true);
+  const [addToCustomWorkoutButton, setAddtoCustomWorkoutButton] = useState(true);
   const [customSavedWorkoutsMessage, setCustomSavedWorkoutsMessage] = useState("");
 
   const availableBodyParts = [
@@ -175,13 +175,13 @@ export default function ConnectToWorkOutApi() {
   };
 
   const handleCustomSavedWorkouts = () => {
-    setShowSaveCustomWorkoutButton(false);
+    setAddtoCustomWorkoutButton(false);
 
     setCustomSavedWorkoutsMessage("Workout Saved To Custom Workouts");
 
     setTimeout(() => {
       setCustomSavedWorkoutsMessage("");
-      setShowSaveCustomWorkoutButton(true);
+      setAddtoCustomWorkoutButton(true);
     }, 2000);
   };
 
@@ -268,7 +268,7 @@ export default function ConnectToWorkOutApi() {
                       </>
                     );
                   })}
-                  {showSaveCustomWorkoutButton && (
+                  {addToCustomWorkoutButton&& (
                     <button
                       className="add-to-custom-workout"
                       onClick={handleCustomSavedWorkouts}
