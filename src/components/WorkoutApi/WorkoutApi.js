@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import React from "react";
 import "./WorkoutApi.css";
 export default function ConnectToWorkOutApi() {
@@ -15,6 +16,8 @@ export default function ConnectToWorkOutApi() {
   const [viewSavedWorkoutButton, setViewSavedWorkoutButton] = useState(false);
   const [addToCustomWorkoutButton, setAddtoCustomWorkoutButton] = useState(true);
   const [customSavedWorkoutsMessage, setCustomSavedWorkoutsMessage] = useState("");
+  const [showCustomWorkoutButton, setShowCustomWorkoutButton] = useState(false);
+  const navigate = useNavigate();
 
   const availableBodyParts = [
     "Shoulders",
@@ -182,7 +185,10 @@ export default function ConnectToWorkOutApi() {
     setTimeout(() => {
       setCustomSavedWorkoutsMessage("");
       setAddtoCustomWorkoutButton(true);
-    }, 2000);
+      setTimeout(() => {
+        setShowCustomWorkoutButton(true);
+      }, 2000);
+    }, 1000);
   };
 
   const handleDeleteWorkout = (selectedMuscle) => {
@@ -268,12 +274,19 @@ export default function ConnectToWorkOutApi() {
                       </>
                     );
                   })}
-                  {addToCustomWorkoutButton&& (
+                  {addToCustomWorkoutButton && (
                     <button
                       className="add-to-custom-workout"
                       onClick={handleCustomSavedWorkouts}
                     >
                       Add To Custom Workouts
+                    </button>
+                  )}
+                  {showCustomWorkoutButton && (
+                    <button
+                      onClick={() => navigate("/user-profile/custom-workout")}
+                    >
+                      Show custom Workouts
                     </button>
                   )}
                   {customSavedWorkoutsMessage}
