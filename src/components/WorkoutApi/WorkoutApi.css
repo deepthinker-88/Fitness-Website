@@ -41,7 +41,8 @@
 .rendered-body-list {
   list-style: none;
 }
-.add-to-custom-workout{
+.add-to-custom-workout,
+.show-custom-workout{
     
   font-family: "LuckiestGuy";
   padding: 0.2rem;
