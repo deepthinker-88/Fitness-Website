@@ -1,25 +1,53 @@
 .workout-api-text,
-.body-text{
-font-family:"LuckiestGuy";
+.body-text {
+  font-family: "LuckiestGuy";
 }
 
-.workouts-list{
-    list-style:none;
+.workouts-list {
+  list-style: none;
 }
 
-.show-message{
-    color:green
+.show-message {
+  color: green;
 }
-.exercises-main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.exercises-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.exercise-info {
+  width: 50%;
+}
+
+.highlight {
+  border: 3px solid green;
+}
+
+.saved-workouts {
+  display: flex;
+  flex-direction: row;
+}
+
+.mapped-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 50%;
+}
+
+.workout-items {
+  list-style: none;
+}
+.rendered-body-list {
+  list-style: none;
+}
+.add-to-custom-workout{
     
-}
-.exercise-info{
-    width: 50%;
+  font-family: "LuckiestGuy";
+  padding: 0.2rem;
+  text-align: center;
+  justify-content: center;
+  align-self: center;
+  width:fit-content
 }
 
-.highlight{
-    border:3px solid green
-}
