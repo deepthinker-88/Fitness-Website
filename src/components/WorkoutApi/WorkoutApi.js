@@ -13,6 +13,9 @@ export default function ConnectToWorkOutApi() {
   const [viewSavedWorkouts, setViewSavedWorkouts] = useState([]);
   const [saveWorkoutMessage, setSaveWorkoutMessage] = useState("");
   const [viewSavedWorkoutButton, setViewSavedWorkoutButton] = useState(false);
+  const [showSaveCustomWorkoutButton, setShowSaveCustomWorkoutButton] = useState(true);
+  const [customSavedWorkoutsMessage, setCustomSavedWorkoutsMessage] = useState("");
+
   const availableBodyParts = [
     "Shoulders",
     "Biceps",
@@ -164,11 +167,22 @@ export default function ConnectToWorkOutApi() {
     setTimeout(() => {
       setSaveWorkoutMessage("Workout Saved");
       setShowSaveButton(false);
-    },0);
+    }, 0);
     setTimeout(() => {
       setSaveWorkoutMessage(false);
       setViewSavedWorkoutButton("View Saved Workouts");
-    },2000);
+    }, 2000);
+  };
+
+  const handleCustomSavedWorkouts = () => {
+    setShowSaveCustomWorkoutButton(false);
+
+    setCustomSavedWorkoutsMessage("Workout Saved To Custom Workouts");
+
+    setTimeout(() => {
+      setCustomSavedWorkoutsMessage("");
+      setShowSaveCustomWorkoutButton(true);
+    }, 2000);
   };
 
   const handleDeleteWorkout = (selectedMuscle) => {
@@ -254,9 +268,15 @@ export default function ConnectToWorkOutApi() {
                       </>
                     );
                   })}
-                  <button className="add-to-custom-workout" onClick={() => {}}>
-                    Add To Custom Workouts
-                  </button>
+                  {showSaveCustomWorkoutButton && (
+                    <button
+                      className="add-to-custom-workout"
+                      onClick={handleCustomSavedWorkouts}
+                    >
+                      Add To Custom Workouts
+                    </button>
+                  )}
+                  {customSavedWorkoutsMessage}
                 </section>
               </>
             )}
