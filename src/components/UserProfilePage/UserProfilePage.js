@@ -4,6 +4,13 @@ import { useState, useEffect } from "react";
 import LogoutToHomePageButton from "../LogOut/Logout";
 import UserProfileWorkout from "../UserProfileWorkOutPage/UserProfileWorkout";
 import { useNavigate } from "react-router-dom";
+import ProfilePictureUpload from "../ProfilePictureUpload/ProfilePictureUpload";
+import Recipes from "../Recipes/Recipes"
+import Footer from "../Footer/Footer"
+import ConnectToWorkOutApi from "../WorkoutApi/WorkoutApi";
+
+
+
 export default function UserProfile(props) {
   const [userEmail, setUserEmail] = useState("");
   const [currentSelection, setCurrentSelection] = useState({
@@ -12,7 +19,7 @@ export default function UserProfile(props) {
     workout_type: "",
   });
   const [isAuthenticated,setIsAuthenticated] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
 
   const [savedSelections, setSavedSelections] = useState([]);
@@ -75,10 +82,11 @@ export default function UserProfile(props) {
       <h1 className="workout-text">
         {props.title} {userEmail}
       </h1>
+      <ProfilePictureUpload />
       <h2 className="workout-text">Let's start by building your custom workout plan!!</h2>
 
       <h3 className="workout-text">{props.day}</h3>
-
+      <section>
       <select value={currentSelection.day} onChange={handleDayChange}>
         <option value=""></option>
         <option value="Monday">Monday</option>
@@ -89,8 +97,10 @@ export default function UserProfile(props) {
         <option value="Saturday">Saturday</option>
         <option value="Sunday">Sunday</option>
       </select>
+      </section>
 
       <h3 className="workout-text">{props.workout}</h3>
+      <section>
       <select value={currentSelection.workout} onChange={handleWorkoutChange}>
         <option value=""></option>
         <option value="Upper body Workout">Upper Body Workout</option>
@@ -98,8 +108,10 @@ export default function UserProfile(props) {
         <option value="Full Body Workout">Full Body Workout</option>
         <option value="Cardio Workout">Cardio Workout</option>
       </select>
+      </section>
 
       <h3 className="workout-text">{props.workout_type}</h3>
+      <section>
       <select
         value={currentSelection.workout_type}
         onChange={handleTypeOfWorkoutChange}
@@ -115,6 +127,7 @@ export default function UserProfile(props) {
         <option value="Squats">Squats</option>
         <option value="Treadmill Runnng">Treadmill Running</option>
       </select>
+      </section>
       <div>
         <br></br>
         <br></br>
@@ -139,6 +152,12 @@ export default function UserProfile(props) {
           ))}
         </div>
       )}
-    </div>
-  );
+      <ConnectToWorkOutApi />
+      <div className="recipe-food--finder">
+        <Recipes />
+      </div>
+       <Footer /> 
+      </div>
+      
+     );
 }
